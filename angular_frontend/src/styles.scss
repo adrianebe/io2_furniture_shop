@@ -145,7 +145,7 @@ nav a {
   
 }
 
-.btn-custom {
+.btn-primary {
   background-color: #444;
   color: #fff;
 }
@@ -162,3 +162,5 @@ footer {
   text-align: center;
   width: 100%;
 }
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
