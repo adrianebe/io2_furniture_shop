@@ -52,12 +52,6 @@ header {
   margin: 0 10px;
 }
 
-.divider {
-  border: none;
-  border-top: 1px solid #444;
-  margin: 0px;
-}
-
 .login {
   padding: 8px 16px;
   text-decoration: none;
@@ -134,14 +128,13 @@ nav a {
 }
 
 .search button {
-  width: 30px;
-  height: 30px;
-  background-image: url('./assets/lupa.png');
-  background-size: cover;
+  width: 35px;
+  height: 60px;
   border: none;
   cursor: pointer;
   position: absolute;
   right: 4px;
+  background: none;
   
 }
 
@@ -164,3 +157,4 @@ footer {
 }
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import "bootstrap-icons/font/bootstrap-icons.css";
