@@ -11,7 +11,7 @@ import { BoardsComponent } from './boards/boards.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 
-export const routes: Routes = [{path: 'home', component: HomeComponent},
+export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'bathroom', component: BathroomComponent},
 {path: 'bedroom', component: BedroomComponent},
 {path: 'kitchen', component: KitchenComponent},
