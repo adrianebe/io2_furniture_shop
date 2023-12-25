@@ -2,44 +2,19 @@ package demo.demo.service;
 
 import demo.demo.entity.AppUser;
 import demo.demo.entity.enums.Role;
-import demo.demo.exception.UserNotFoundException;
-import demo.demo.repository.AppUserRepo;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@Service
-public class AppUserService {
+public interface AppUserService {
+    List<AppUser> getAllAppUsers();
 
-    private final AppUserRepo appUserRepo;
+    List<AppUser> getAllAppUsersByRole(Role role);
 
-    public List<AppUser> getAllAppUsers() {
-        return appUserRepo.findAll();
-    }
+    AppUser getAppUserById(Long id);
 
-    public List<AppUser> getAllAppUsersByRole(Role role) {
-        return appUserRepo.findAllByRole(role);
-    }
+    AppUser addNewAppUser(AppUser appUser);
 
+    AppUser updateAppUser(AppUser appUser);
 
-    public AppUser getAppUserByID(Long id) {
-        return appUserRepo.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User by id: " + id + "was not found!"));
-    }
-
-    public AppUser addNewAppUser(AppUser appUser) {
-        appUser.setRole(Role.USER);
-        appUser.setStatus(1);
-        return appUserRepo.save(appUser);
-    }
-
-    public AppUser updateAppUser(AppUser appUser) {
-        return appUserRepo.save(appUser);
-    }
-
-    public void deleteAppUser(Long id) {
-        appUserRepo.deleteById(id);
-    }
+    void deleteAppUser(Long id);
 }
