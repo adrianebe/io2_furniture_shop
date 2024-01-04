@@ -15,19 +15,19 @@ export class AssortmentService {
     return this.http.get<any[]>(`${this.apiUrl}/assortment`);
   }
 
-  getPostById(id: number): Observable<any> {
+  getAssortmentById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/assortment/${id}`);
   }
 
-  addPost(post: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/assortment`, post);
+  addAssortment(Assortment: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/assortment`, Assortment);
   }
 
-  updatePost(id: number, post: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/assortment/${id}`, post);
+  updateAssortment(id: number, Assortment: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/assortment/${id}`, Assortment);
   }
 
-  deletePost(id: number): Observable<any> {
+  deleteAssortment(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/assortment/${id}`);
   }
 
