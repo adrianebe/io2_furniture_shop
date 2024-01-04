@@ -4,4 +4,5 @@ public record AppUserResponse(
         Long id,
         String name,
         String lastName
-    ) {}
+) {
+}

@@ -13,6 +13,7 @@
               <label for="password">Hasło:</label>
               <input type="password" class="form-control" id="password" placeholder="Twoje hasło" required>
             </div>
+            <hr class="divider">
             <div class="form-group d-flex justify-content-center">
               <button type="submit" class="btn btn-custom">Zaloguj się</button>
             </div>
@@ -25,14 +26,16 @@
         <div class="card" style="height: 30em;">
           <h3 class="card-title text-center mb-4 mt-4">Nie masz jeszcze konta?</h3>
           <hr>
-          <ul class="list-unstyled text-center">
-            <li>Historia zamówień</li>
-            <li>Łatwiejsza komunikacja</li>
-            <li>Nie zdecydowany? Dodaj do koszyka i kup innym razem!</li>
-          </ul>
+          <div class="container">
+            <ul class="list-unstyled text-center">
+              <li class="mb-3"><i class="bi bi-clock"></i> Historia zamówień</li>
+              <li class="mb-3"><i class="bi bi-chat-dots"></i> Łatwiejsza komunikacja</li>
+              <li><i class="bi bi-cart"></i> Niezdecydowany? Dodaj do koszyka i kup innym razem!</li>
+            </ul>
+          </div>
           <hr>
           <div class="form-group d-flex justify-content-center">
-            <button type="button" class="btn btn-custom">Zarejestruj się</button>
+            <a href="register/" class="btn btn-custom">Zarejestruj się</a>          
           </div>
           
         </div>
