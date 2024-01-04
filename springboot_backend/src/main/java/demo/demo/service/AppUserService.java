@@ -1,27 +1,20 @@
 package demo.demo.service;
 
 import demo.demo.entity.AppUser;
-import demo.demo.repository.AppUserRepo;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import demo.demo.entity.enums.Role;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@Service
-public class AppUserService {
+public interface AppUserService {
+    List<AppUser> getAllAppUsers();
 
-    private  final AppUserRepo appUserRepo;
+    List<AppUser> getAllAppUsersByRole(Role role);
 
-    public List<AppUser> getAppUsers(){
-        return appUserRepo.findAll();
-    }
+    AppUser getAppUserById(Long id);
 
-    public void addNewUser(AppUser appUser){
-        appUserRepo.save(appUser);
-    }
+    AppUser addNewAppUser(AppUser appUser);
 
-    public void deleteUser(Long id){
-        appUserRepo.deleteById(id);
-    }
+    AppUser updateAppUser(AppUser appUser);
+
+    void deleteAppUser(Long id);
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/v1/complaints")
 public class ComplaintController {
 
@@ -18,17 +19,17 @@ public class ComplaintController {
     }
 
     @GetMapping("get")
-    public List<Complaint> getAllComplaints(){
+    public List<Complaint> getAllComplaints() {
         return complaintRepo.findAll();
     }
 
     @GetMapping("get/{complaintId}")
-    public Optional<Complaint> getSpecificComplaint(@PathVariable Long complaintId){
+    public Optional<Complaint> getSpecificComplaint(@PathVariable Long complaintId) {
         return complaintRepo.findById(complaintId);
     }
 
     @PostMapping("add")
-    public Complaint newComplaint(@RequestBody Complaint complaint){
+    public Complaint newComplaint(@RequestBody Complaint complaint) {
         return complaintRepo.save(complaint);
     }
 }
