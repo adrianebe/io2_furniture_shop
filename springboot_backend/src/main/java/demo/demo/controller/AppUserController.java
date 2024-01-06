@@ -2,7 +2,6 @@ package demo.demo.controller;
 
 import demo.demo.dto.request.AppUserRequest;
 import demo.demo.dto.response.AppUserResponse;
-import demo.demo.entity.AppUser;
 import demo.demo.mapper.AppUserMapper;
 import demo.demo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
