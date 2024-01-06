@@ -25,7 +25,7 @@ public class Order {
     private Assortment assortment;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     @Column(name = "delivery_type")
     private int deliveryType;

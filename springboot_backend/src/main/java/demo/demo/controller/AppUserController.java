@@ -1,10 +1,13 @@
 package demo.demo.controller;
 
+import demo.demo.dto.request.AppUserRequest;
 import demo.demo.dto.response.AppUserResponse;
 import demo.demo.entity.AppUser;
 import demo.demo.mapper.AppUserMapper;
 import demo.demo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,20 +21,24 @@ public class AppUserController {
     private final AppUserMapper appUserMapper;
 
     @GetMapping("get")
-    public List<AppUserResponse> getAppUsers() {
-        return appUserService.getAllAppUsers()
+    public ResponseEntity<List<AppUserResponse>> getAppUsers() {
+        List<AppUserResponse> appUsers = appUserService.getAllAppUsers()
                 .stream()
                 .map(appUserMapper::mapToResponse)
                 .toList();
+        return new ResponseEntity<>(appUsers, HttpStatus.OK);
     }
 
     @PostMapping("add")
-    public AppUser addAppUser(@RequestBody AppUser appUser) {
-        return appUserService.addNewAppUser(appUser);
+    public ResponseEntity<AppUserResponse> addAppUser(@RequestBody AppUserRequest appUser) {
+        AppUserResponse newAppUser = appUserMapper
+                .mapToResponse(appUserService.addNewAppUser(appUserMapper.mapToEntity(appUser)));
+        return new ResponseEntity<>(newAppUser, HttpStatus.CREATED);
     }
 
     @DeleteMapping("delete/{userId}")
-    public void deleteUser(@PathVariable Long userId) {
+    public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
         appUserService.deleteAppUser(userId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -2,10 +2,11 @@ package demo.demo.service;
 
 import demo.demo.entity.AppUser;
 import demo.demo.entity.enums.Role;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface AppUserService {
+public interface AppUserService extends UserDetailsService {
     List<AppUser> getAllAppUsers();
 
     List<AppUser> getAllAppUsersByRole(Role role);
@@ -17,4 +18,9 @@ public interface AppUserService {
     AppUser updateAppUser(AppUser appUser);
 
     void deleteAppUser(Long id);
+
+    boolean doesUserExist(String email);
+
+    void registerAppUser(String email, String name, String lastName, String password);
+
 }
