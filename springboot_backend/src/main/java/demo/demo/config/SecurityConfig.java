@@ -3,7 +3,7 @@ package demo.demo.config;
 
 import demo.demo.config.jwt.JwtProvider;
 import demo.demo.config.jwt.PreAuthenticationFilter;
-import demo.demo.service.impl.AppUserServiceImpl;
+import demo.demo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +29,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final AppUserServiceImpl appUserServiceImpl;
+    private final AppUserService appUserService;
     private final JwtProvider jwtProvider;
 
     @Bean
@@ -70,7 +70,7 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(appUserServiceImpl);
+        authenticationProvider.setUserDetailsService(appUserService);
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
