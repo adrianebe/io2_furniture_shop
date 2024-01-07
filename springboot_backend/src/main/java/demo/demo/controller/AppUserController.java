@@ -1,8 +1,6 @@
 package demo.demo.controller;
 
 import demo.demo.entity.AppUser;
-import demo.demo.entity.Assortment;
-import demo.demo.entity.Order;
 import demo.demo.service.AppUserService;
 import demo.demo.service.AssortmentService;
 import demo.demo.service.OrderService;
@@ -11,9 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
