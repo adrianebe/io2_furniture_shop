@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,9 +21,12 @@ public class Order {
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
-    @ManyToOne
-    @JoinColumn(name = "assortment_id")
-    private Assortment assortment;
+    @ManyToMany
+    @JoinTable(
+            name = "order_assortment",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "assortment_id"))
+    private List<Assortment> assortments;
 
     @Column(name = "price")
     private double price;

@@ -24,10 +24,6 @@ public class OrderController {
         return orderService.getAllOrdersByAppUserId(appUserId);
     }
 
-    @PostMapping("new")
-    public Order newOrder(@RequestBody Order order) {
-        return orderService.addNewOrder(order);
-    }
 
     @DeleteMapping("delete/{orderId}")
     public void deleteOrder(@PathVariable Long orderId) {

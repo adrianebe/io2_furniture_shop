@@ -13,13 +13,13 @@ public interface AppUserService extends UserDetailsService {
 
     AppUser getAppUserById(Long id);
 
-    AppUser addNewAppUser(AppUser appUser);
+    void addNewAppUser(AppUser appUser);
 
     AppUser updateAppUser(Long userId, AppUser appUser);
 
     void deleteAppUser(Long id);
 
-    boolean doesUserExist(String email);
+    boolean doesAppUserExist(String email);
 
     void registerAppUser(String email, String name, String lastName, String password);
 

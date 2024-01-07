@@ -53,10 +53,10 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
                 .orElseThrow(() -> new UserNotFoundException("User by id: " + id + "was not found!"));
     }
 
-    public AppUser addNewAppUser(AppUser appUser) {
+    public void addNewAppUser(AppUser appUser) {
         appUser.setPassword(new BCryptPasswordEncoder().encode(appUser.getPassword()));
         appUser.setEnabled(true);
-        return appUserRepo.save(appUser);
+        appUserRepo.save(appUser);
     }
 
     public AppUser updateAppUser(Long userId, AppUser appUser) {
@@ -96,7 +96,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
     }
 
     @Override
-    public boolean doesUserExist(String email) {
+    public boolean doesAppUserExist(String email) {
         return appUserRepo.existsByEmail(email);
     }
 

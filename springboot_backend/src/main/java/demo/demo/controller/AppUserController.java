@@ -1,15 +1,19 @@
 package demo.demo.controller;
 
-import demo.demo.dto.request.AppUserRequest;
-import demo.demo.dto.response.AppUserResponse;
-import demo.demo.mapper.AppUserMapper;
+import demo.demo.entity.AppUser;
+import demo.demo.entity.Assortment;
+import demo.demo.entity.Order;
 import demo.demo.service.AppUserService;
+import demo.demo.service.AssortmentService;
+import demo.demo.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -17,27 +21,42 @@ import java.util.List;
 public class AppUserController {
 
     private final AppUserService appUserService;
-    private final AppUserMapper appUserMapper;
+    private final OrderService orderService;
+    private final AssortmentService assortmentService;
 
-    @GetMapping()
-    public ResponseEntity<List<AppUserResponse>> getAppUsers() {
-        List<AppUserResponse> appUsers = appUserService.getAllAppUsers()
-                .stream()
-                .map(appUserMapper::mapToResponse)
-                .toList();
-        return new ResponseEntity<>(appUsers, HttpStatus.OK);
+
+    @GetMapping("orders")
+    public ResponseEntity<?> getAllAppUserOrders() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        AppUser appUser = (AppUser) appUserService.loadUserByUsername(email);
+
+        return ResponseEntity.ok(orderService.getAllOrdersByAppUserId(appUser.getId()));
     }
 
-    @PostMapping()
-    public ResponseEntity<AppUserResponse> addAppUser(@RequestBody AppUserRequest appUser) {
-        AppUserResponse newAppUser = appUserMapper
-                .mapToResponse(appUserService.addNewAppUser(appUserMapper.mapToEntity(appUser)));
-        return new ResponseEntity<>(newAppUser, HttpStatus.CREATED);
+    @GetMapping("orders/{orderId}")
+    public ResponseEntity<?> getSpecificOrderDetails(@PathVariable Long orderId) {
+        return ResponseEntity.ok(orderService.getOrderById(orderId));
     }
 
-    @DeleteMapping("{userId}")
-    public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
-        appUserService.deleteAppUser(userId);
+    //TODO: make this works
+//    @PostMapping("orders")
+//    public ResponseEntity<?> createOrder(@RequestBody List<Long> assortmentIds) {
+//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+//        AppUser appUser = (AppUser) appUserService.loadUserByUsername(email);
+//
+//        List<Assortment> assortments = assortmentIds.stream()
+//                .map(assortmentService::getAssortmentById)
+//                .collect(Collectors.toList());
+//
+//        Order newOrder = orderService.addNewOrder(appUser, assortments);
+//        return ResponseEntity.ok(newOrder);
+//    }
+
+    @DeleteMapping("orders/{orderId}")
+    public ResponseEntity<?> cancelOrder(@PathVariable Long orderId) {
+        orderService.deleteOrder(orderId);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

@@ -17,7 +17,7 @@ public class AuthServiceImpl implements AuthService {
     private final JwtTokenProvider jwtTokenProvider;
 
     public boolean registerUser(String name, String lastName, String email, String password) {
-        if (appUserService.doesUserExist(email)) {
+        if (appUserService.doesAppUserExist(email)) {
             return false;
         }
 

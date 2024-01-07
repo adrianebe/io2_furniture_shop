@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((request) -> request
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/user/**").hasAuthority("USER")
+                        .requestMatchers("/api/v1/employee/**").hasAuthority("EMPLOYEE")
                         .requestMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
                         .anyRequest().denyAll())
                 .exceptionHandling()
