@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -53,13 +54,41 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
     }
 
     public AppUser addNewAppUser(AppUser appUser) {
-        appUser.setRole(Role.USER);
+        appUser.setPassword(new BCryptPasswordEncoder().encode(appUser.getPassword()));
         appUser.setEnabled(true);
         return appUserRepo.save(appUser);
     }
 
-    public AppUser updateAppUser(AppUser appUser) {
-        return appUserRepo.save(appUser);
+    public AppUser updateAppUser(Long userId, AppUser appUser) {
+        Optional<AppUser> existingUserOptional = appUserRepo.findById(userId);
+
+        if (existingUserOptional.isPresent()) {
+            AppUser existingUser = existingUserOptional.get();
+
+            if (appUser.getName() != null) {
+                existingUser.setName(appUser.getName());
+            }
+
+            if (appUser.getLastName() != null) {
+                existingUser.setLastName(appUser.getLastName());
+            }
+
+            if (appUser.getEmail() != null) {
+                existingUser.setEmail(appUser.getEmail());
+            }
+
+            if (appUser.getPassword() != null) {
+                existingUser.setPassword(appUser.getPassword());
+            }
+
+            if (appUser.getRole() != null) {
+                existingUser.setRole(appUser.getRole());
+            }
+
+            return appUserRepo.save(existingUser);
+        } else {
+            throw new UserNotFoundException("User by id: " + userId + "was not found!");
+        }
     }
 
     public void deleteAppUser(Long id) {

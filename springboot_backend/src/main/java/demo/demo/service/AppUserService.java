@@ -15,7 +15,7 @@ public interface AppUserService extends UserDetailsService {
 
     AppUser addNewAppUser(AppUser appUser);
 
-    AppUser updateAppUser(AppUser appUser);
+    AppUser updateAppUser(Long userId, AppUser appUser);
 
     void deleteAppUser(Long id);
 

@@ -19,7 +19,7 @@ public class AppUserController {
     private final AppUserService appUserService;
     private final AppUserMapper appUserMapper;
 
-    @GetMapping("get")
+    @GetMapping()
     public ResponseEntity<List<AppUserResponse>> getAppUsers() {
         List<AppUserResponse> appUsers = appUserService.getAllAppUsers()
                 .stream()
@@ -28,14 +28,14 @@ public class AppUserController {
         return new ResponseEntity<>(appUsers, HttpStatus.OK);
     }
 
-    @PostMapping("add")
+    @PostMapping()
     public ResponseEntity<AppUserResponse> addAppUser(@RequestBody AppUserRequest appUser) {
         AppUserResponse newAppUser = appUserMapper
                 .mapToResponse(appUserService.addNewAppUser(appUserMapper.mapToEntity(appUser)));
         return new ResponseEntity<>(newAppUser, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("delete/{userId}")
+    @DeleteMapping("{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
         appUserService.deleteAppUser(userId);
         return new ResponseEntity<>(HttpStatus.OK);
