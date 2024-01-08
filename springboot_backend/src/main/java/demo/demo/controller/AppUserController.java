@@ -5,6 +5,7 @@ import demo.demo.dto.OrderDto;
 import demo.demo.entity.AppUser;
 import demo.demo.entity.Assortment;
 import demo.demo.entity.Order;
+import demo.demo.mapper.OrderMapper;
 import demo.demo.service.AppUserService;
 import demo.demo.service.AssortmentService;
 import demo.demo.service.OrderService;
@@ -25,6 +26,7 @@ public class AppUserController {
     private final AppUserService appUserService;
     private final OrderService orderService;
     private final AssortmentService assortmentService;
+    private final OrderMapper orderMapper;
 
 
     @GetMapping("orders")
@@ -32,32 +34,17 @@ public class AppUserController {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         AppUser appUser = (AppUser) appUserService.loadUserByUsername(email);
 
-        List<Order> orders = orderService.getAllOrdersByAppUserId(appUser.getId());
-        List<OrderDto> orderDtos = orders.stream()
-                .map(order -> new OrderDto(
-                        order.getId(),
-                        order.getAssortments(),
-                        order.getPrice(),
-                        order.getDeliveryType(),
-                        order.getDeliveryDate()
-                ))
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(orderDtos);
+        return ResponseEntity.ok(orderService.getAllOrdersByAppUserId(appUser.getId())
+                .stream()
+                .map(orderMapper::mapToDto)
+                .toList());
     }
 
     @GetMapping("orders/{orderId}")
     public ResponseEntity<OrderDto> getSpecificOrderDetails(@PathVariable Long orderId) {
         Order order = orderService.getOrderById(orderId);
-        OrderDto orderDto = new OrderDto(
-                order.getId(),
-                order.getAssortments(),
-                order.getPrice(),
-                order.getDeliveryType(),
-                order.getDeliveryDate()
-        );
 
-        return ResponseEntity.ok(orderDto);
+        return ResponseEntity.ok(orderMapper.mapToDto(order));
     }
 
 
