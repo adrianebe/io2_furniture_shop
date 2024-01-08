@@ -1,5 +1,6 @@
 package demo.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,7 @@ public class Assortment {
     private String roomType;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     @Column(name = "description")
     private String description;
@@ -34,6 +35,7 @@ public class Assortment {
     @Column(name = "availability")
     private int availability;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "assortments")
     private List<Order> orders;
 }

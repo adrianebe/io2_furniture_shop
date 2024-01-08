@@ -6,6 +6,7 @@ import demo.demo.entity.Order;
 import demo.demo.exception.OrderNotFoundException;
 import demo.demo.repository.OrderRepo;
 import demo.demo.service.OrderService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepo orderRepo;
@@ -29,7 +31,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order addNewOrder(AppUser appUser, List<Assortment> assortments) {
+    public void addNewOrder(AppUser appUser, List<Assortment> assortments) {
         Order newOrder = new Order();
         newOrder.setAppUser(appUser);
         newOrder.setAssortments(assortments);
@@ -37,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setDeliveryType(1);
         newOrder.setDeliveryDate(LocalDate.now().plusDays(3));
 
-        return orderRepo.save(newOrder);
+        orderRepo.save(newOrder);
     }
 
     private double calculateTotalPrice(List<Assortment> assortments) {

@@ -1,5 +1,6 @@
 package demo.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Order {
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "order_assortment",

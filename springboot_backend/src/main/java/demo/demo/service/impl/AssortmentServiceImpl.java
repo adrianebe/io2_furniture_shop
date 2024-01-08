@@ -4,6 +4,7 @@ import demo.demo.entity.Assortment;
 import demo.demo.exception.AssortmentNotFoundException;
 import demo.demo.repository.AssortmentRepo;
 import demo.demo.service.AssortmentService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class AssortmentServiceImpl implements AssortmentService {
 
     private final AssortmentRepo assortmentRepo;

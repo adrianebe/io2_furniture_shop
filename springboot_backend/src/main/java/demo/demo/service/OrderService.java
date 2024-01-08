@@ -12,7 +12,7 @@ public interface OrderService {
 
     List<Order> getAllOrdersByAppUserId(Long id);
 
-    Order addNewOrder(AppUser appUser, List<Assortment> assortments);
+    void addNewOrder(AppUser appUser, List<Assortment> assortments);
 
     void deleteOrder(Long id);
 
