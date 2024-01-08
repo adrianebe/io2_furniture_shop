@@ -1,6 +1,6 @@
 package demo.demo.controller;
 
-import demo.demo.dto.response.AppUserResponse;
+import demo.demo.dto.AppUserDto;
 import demo.demo.entity.AppUser;
 import demo.demo.mapper.AppUserMapper;
 import demo.demo.service.AppUserService;
@@ -21,7 +21,7 @@ public class AdminController {
     private final AppUserMapper appUserMapper;
 
     @GetMapping()
-    public ResponseEntity<List<AppUserResponse>> getAllAppUsers() {
+    public ResponseEntity<List<AppUserDto>> getAllAppUsers() {
         return ResponseEntity.ok
                 (appUserService.getAllAppUsers()
                         .stream()
