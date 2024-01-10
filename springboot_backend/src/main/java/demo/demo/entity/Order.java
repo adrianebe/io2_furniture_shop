@@ -1,10 +1,12 @@
 package demo.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,12 +22,16 @@ public class Order {
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
-    @ManyToOne
-    @JoinColumn(name = "assortment_id")
-    private Assortment assortment;
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "order_assortment",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "assortment_id"))
+    private List<Assortment> assortments;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     @Column(name = "delivery_type")
     private int deliveryType;

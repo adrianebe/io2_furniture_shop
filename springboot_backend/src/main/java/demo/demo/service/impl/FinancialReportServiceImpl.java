@@ -1,7 +1,7 @@
 package demo.demo.service.impl;
 
 import demo.demo.entity.FinancialReport;
-import demo.demo.mapper.exception.FinancialReportNotFoundException;
+import demo.demo.exception.FinancialReportNotFoundException;
 import demo.demo.repository.FinancialReportRepo;
 import demo.demo.service.FinancialReportService;
 import lombok.RequiredArgsConstructor;

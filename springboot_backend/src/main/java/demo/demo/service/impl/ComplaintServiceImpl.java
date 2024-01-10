@@ -1,7 +1,7 @@
 package demo.demo.service.impl;
 
 import demo.demo.entity.Complaint;
-import demo.demo.mapper.exception.ComplaintNotFoundException;
+import demo.demo.exception.ComplaintNotFoundException;
 import demo.demo.repository.ComplaintRepo;
 import demo.demo.service.ComplaintService;
 import lombok.RequiredArgsConstructor;
