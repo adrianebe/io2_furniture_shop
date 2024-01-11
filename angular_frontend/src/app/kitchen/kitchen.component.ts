@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { AssortmentService } from '../services/assortment.service';
 import { Assortment } from '../DTO/assortment';
 import { DetailWindowComponent } from '../detail-window/detail-window.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-kitchen',
   standalone: true,
-  imports: [DetailWindowComponent],
+  imports: [DetailWindowComponent, NgFor, NgIf],
   templateUrl: './kitchen.component.html',
   styleUrl: './kitchen.component.scss'
 })

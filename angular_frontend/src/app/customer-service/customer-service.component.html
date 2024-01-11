@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div *ngFor="let faq of faqs">
         <div class="faq-question" (click)="toggleAnswer(faq)">
-          {{ faq.question }}
+          <strong>{{ faq.question }}</strong>
         </div>
         <div class="faq-answer" *ngIf="faq.showAnswer">
           {{ faq.answer }}
@@ -29,9 +29,13 @@
             <i class="fas fa-phone custom-icon-size"></i>
             <strong>  22 342 32 11</strong>
           </p>
+          <p class="card-text">
+            <i class="fas fa-envelope custom-icon-size"></i>
+            <strong>  info&#64;hornetfurniture.com</strong>
+          </p>
           <p class="card-text">          
             <i class="fas fa-calendar custom-icon-size"></i>
-            <strong>  Skontaktuj się z nami w godzinach</strong>
+            <strong>  Jesteśmy dostępni:</strong>
           </p>
 
           <p class="card-text">

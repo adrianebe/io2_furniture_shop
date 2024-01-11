@@ -8,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  password: string = '';
+  passwordFieldType: string = 'password';
 
+  updatePassword(event: any) {
+    this.password = event.target.value;
+  }
+
+  showPassword() {
+    this.passwordFieldType = 'text';
+  }
+
+  hidePassword() {
+    this.passwordFieldType = 'password';
+  }
 }

@@ -21,12 +21,19 @@
             </div>
             <hr class="divider">
             <div class="form-group col-md-8 offset-md-2">
-              <label for="register-password">Hasło:</label>
-              <input type="password" class="form-control" id="register-password" placeholder="Hasło" required>
+              <label for="password">Hasło:</label>
+              <div class="input-group">
+                <input type="{{ passwordFirst }}" class="form-control" id="register-password" name="password" placeholder="Hasło" (input)="updateFirstPassword($event)" required>
+              </div>
+              <button class="btn btn-outline-secondary border-0" type="button" (mousedown)="showFirstPassword()" (mouseup)="hideFirstPassword()">👁️</button>
             </div>
             <hr class="divider">
             <div class="form-group col-md-8 offset-md-2">
-              <input type="password" class="form-control" id="password" placeholder="Powtórz hasło" required>
+              <label for="password">Hasło:</label>
+              <div class="input-group">
+                <input type="{{ passwordSec }}" class="form-control" id="password" name="password" placeholder="Powtórz hasło" (input)="updateSecPassword($event)" required>
+              </div>
+              <button class="btn btn-outline-secondary border-0" type="button" (mousedown)="showSecPassword()" (mouseup)="hideSecPassword()">👁️</button>
             </div>
 
             <hr class="divider">
