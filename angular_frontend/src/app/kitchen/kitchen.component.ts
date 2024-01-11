@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { AssortmentService } from '../services/assortment.service';
 import { Assortment } from '../DTO/assortment';
+import { DetailWindowComponent } from '../detail-window/detail-window.component';
 
 @Component({
   selector: 'app-kitchen',
   standalone: true,
-  imports: [],
+  imports: [DetailWindowComponent],
   templateUrl: './kitchen.component.html',
   styleUrl: './kitchen.component.scss'
 })

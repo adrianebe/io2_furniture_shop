@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { DetailWindowComponent } from '../detail-window/detail-window.component';
 
 @Component({
   selector: 'app-bathroom',
   standalone: true,
-  imports: [],
+  imports: [DetailWindowComponent],
   templateUrl: './bathroom.component.html',
   styleUrl: './bathroom.component.scss'
 })
