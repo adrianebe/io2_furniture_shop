@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-
+import { LoginFormComponent } from '../login-form/login-form.component';
+import { AxiosService } from '../services/axios.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [LoginFormComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
-  password: string = '';
-  passwordFieldType: string = 'password';
+export class LoginComponent{
 
-  updatePassword(event: any) {
-    this.password = event.target.value;
-  }
-
-  showPassword() {
-    this.passwordFieldType = 'text';
-  }
-
-  hidePassword() {
-    this.passwordFieldType = 'password';
+  constructor(private axiosService: AxiosService) {}
+  onLogin(input: any): void {
+    this.axiosService.request(
+      "POST",
+      "signin",
+      {
+        email: input.email,
+        password: input.password
+      }
+    )
   }
 }
