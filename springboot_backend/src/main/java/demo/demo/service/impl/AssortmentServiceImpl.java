@@ -55,10 +55,6 @@ public class AssortmentServiceImpl implements AssortmentService {
                 existingAssortment.setName(updatedAssortment.getName());
             }
 
-            if (updatedAssortment.getType() != null) {
-                existingAssortment.setType(updatedAssortment.getType());
-            }
-
             if (updatedAssortment.getRoomType() != null) {
                 existingAssortment.setRoomType(updatedAssortment.getRoomType());
             }

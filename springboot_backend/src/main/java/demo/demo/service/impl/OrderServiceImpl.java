@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
+import static demo.demo.entity.enums.OrderStatus.PENDING;
+
 @RequiredArgsConstructor
 @Service
 @Transactional
@@ -38,6 +40,8 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setPrice(calculateTotalPrice(assortments));
         newOrder.setDeliveryType(1);
         newOrder.setDeliveryDate(LocalDate.now().plusDays(3));
+        newOrder.setOrderStatus(PENDING);
+        newOrder.setOrderDate(LocalDate.now());
 
         orderRepo.save(newOrder);
     }

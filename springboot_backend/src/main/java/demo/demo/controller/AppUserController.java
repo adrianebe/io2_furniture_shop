@@ -12,7 +12,6 @@ import demo.demo.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,10 +30,10 @@ public class AppUserController {
 
     @GetMapping("orders")
     public ResponseEntity<List<OrderDto>> getAllAppUserOrders() {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        AppUser appUser = (AppUser) appUserService.loadUserByUsername(email);
 
-        return ResponseEntity.ok(orderService.getAllOrdersByAppUserId(appUser.getId())
+        AppUser currentUser = appUserService.getCurrentUser();
+
+        return ResponseEntity.ok(orderService.getAllOrdersByAppUserId(currentUser.getId())
                 .stream()
                 .map(orderMapper::mapToDto)
                 .toList());
@@ -50,14 +49,14 @@ public class AppUserController {
 
     @PostMapping("orders")
     public ResponseEntity<?> createOrder(@RequestBody AssortmentListDto assortmentIds) {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        AppUser appUser = (AppUser) appUserService.loadUserByUsername(email);
+
+        AppUser currentUser = appUserService.getCurrentUser();
 
         List<Assortment> assortments = assortmentIds.assortmentIds().stream()
                 .map(assortmentService::getAssortmentById)
                 .collect(Collectors.toList());
 
-        orderService.addNewOrder(appUser, assortments);
+        orderService.addNewOrder(currentUser, assortments);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

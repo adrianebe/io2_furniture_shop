@@ -20,9 +20,6 @@ public class Assortment {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "type")
-    private String type;
-
     @Column(name = "room_type")
     private String roomType;
 
@@ -31,6 +28,9 @@ public class Assortment {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "photo")
+    private String photo;
 
     @Column(name = "availability")
     private int availability;

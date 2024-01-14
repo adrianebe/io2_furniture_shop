@@ -1,6 +1,7 @@
 package demo.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import demo.demo.entity.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,5 +39,15 @@ public class Order {
 
     @Column(name = "delivery_date")
     private LocalDate deliveryDate;
+
+    @Column(name = "order_date")
+    private LocalDate orderDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "order_status")
+    private OrderStatus orderStatus;
+
+    @Column(name = "delivery_address")
+    private String deliveryAddress;
 
 }

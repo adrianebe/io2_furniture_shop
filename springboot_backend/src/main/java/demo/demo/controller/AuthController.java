@@ -34,14 +34,13 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> register(@RequestBody RegisterDto registerDto) {
-        if (authService.registerUser(
+        authService.registerUser(
                 registerDto.name(),
                 registerDto.lastName(),
                 registerDto.email(),
-                registerDto.password())) {
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        }
+                registerDto.password());
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
 }

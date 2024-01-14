@@ -2,10 +2,12 @@ package demo.demo.service.impl;
 
 import demo.demo.entity.AppUser;
 import demo.demo.entity.enums.Role;
+import demo.demo.exception.EmailAlreadyExistsException;
 import demo.demo.exception.UserNotFoundException;
 import demo.demo.repository.AppUserRepo;
 import demo.demo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,16 +24,34 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
     private final AppUserRepo appUserRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return appUserRepo.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User with email: " + email + "was not found!"));
+    public AppUser getCurrentUser() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        AppUser appUser = (AppUser) loadUserByUsername(email);
+
+        if (appUser == null) {
+            throw new UsernameNotFoundException("User with email: " + email + " was not found!");
+        }
+
+        return appUser;
     }
 
     @Override
-    public void registerAppUser(String email, String name, String lastName, String password) {
-        AppUser appUser = new AppUser(email,
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return appUserRepo.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User with email: " + email + " was not found!"));
+    }
+
+    @Override
+    public void registerAppUser(String name, String lastName, String email, String password) {
+
+        if (appUserRepo.existsByEmail(email)) {
+            throw new EmailAlreadyExistsException("User with email: " + email + " already exists!");
+        }
+
+        AppUser appUser = new AppUser(
                 name,
                 lastName,
+                email,
                 new BCryptPasswordEncoder().encode(password));
         appUser.setRole(Role.USER);
         appUser.setEnabled(true);
@@ -50,10 +70,15 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 
     public AppUser getAppUserById(Long id) {
         return appUserRepo.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User by id: " + id + "was not found!"));
+                .orElseThrow(() -> new UserNotFoundException("User by id: " + id + " was not found!"));
     }
 
     public void addNewAppUser(AppUser appUser) {
+
+        if (appUserRepo.existsByEmail(appUser.getEmail())) {
+            throw new EmailAlreadyExistsException("User with email: " + appUser.getEmail() + " already exists!");
+        }
+
         appUser.setPassword(new BCryptPasswordEncoder().encode(appUser.getPassword()));
         appUser.setEnabled(true);
         appUserRepo.save(appUser);
@@ -93,11 +118,6 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 
     public void deleteAppUser(Long id) {
         appUserRepo.deleteById(id);
-    }
-
-    @Override
-    public boolean doesAppUserExist(String email) {
-        return appUserRepo.existsByEmail(email);
     }
 
 }
