@@ -4,10 +4,12 @@ import demo.demo.dto.AssortmentListDto;
 import demo.demo.dto.OrderDto;
 import demo.demo.entity.AppUser;
 import demo.demo.entity.Assortment;
+import demo.demo.entity.Complaint;
 import demo.demo.entity.Order;
 import demo.demo.mapper.OrderMapper;
 import demo.demo.service.AppUserService;
 import demo.demo.service.AssortmentService;
+import demo.demo.service.ComplaintService;
 import demo.demo.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,7 @@ public class AppUserController {
     private final OrderService orderService;
     private final AssortmentService assortmentService;
     private final OrderMapper orderMapper;
+    private final ComplaintService complaintService;
 
 
     @GetMapping("orders")
@@ -67,4 +70,29 @@ public class AppUserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("complaints")
+    public ResponseEntity<List<Complaint>> getAllAppUserComplaints() {
+        AppUser currentUser = appUserService.getCurrentUser();
+
+        return ResponseEntity.ok(complaintService
+                .getAllAppUserComplaints(currentUser.getId()));
+    }
+
+    @PostMapping("complaints")
+    public ResponseEntity<?> addNewComplaint(@RequestBody Complaint complaint) {
+        AppUser currentUser = appUserService.getCurrentUser();
+
+        complaintService.addNewComplaint(complaint);
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("complaints/{complaintId}")
+    public ResponseEntity<?> deleteAppUsersComplaint(@PathVariable Long complaintId){
+        AppUser currentUser = appUserService.getCurrentUser();
+
+        complaintService.deleteAppUserComplaint(complaintId, currentUser.getId());
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

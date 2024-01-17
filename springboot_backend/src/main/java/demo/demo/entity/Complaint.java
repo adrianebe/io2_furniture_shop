@@ -1,5 +1,6 @@
 package demo.demo.entity;
 
+import demo.demo.entity.enums.ComplaintStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,7 @@ public class Complaint {
     private String description;
 
     @Column(name = "status")
-    private int status;
+    private ComplaintStatus status;
 
     @Column(name = "response")
     private String response;

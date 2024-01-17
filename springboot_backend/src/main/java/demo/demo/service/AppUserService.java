@@ -4,6 +4,7 @@ import demo.demo.entity.AppUser;
 import demo.demo.entity.enums.Role;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface AppUserService extends UserDetailsService {
@@ -23,4 +24,5 @@ public interface AppUserService extends UserDetailsService {
 
     void registerAppUser(String name, String lastName, String email, String password);
 
+    List<AppUser> getAllActiveOrNotActiveAppUsers(boolean enabled);
 }

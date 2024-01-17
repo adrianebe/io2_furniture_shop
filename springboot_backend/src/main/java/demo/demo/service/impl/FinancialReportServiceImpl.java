@@ -4,9 +4,11 @@ import demo.demo.entity.FinancialReport;
 import demo.demo.exception.FinancialReportNotFoundException;
 import demo.demo.repository.FinancialReportRepo;
 import demo.demo.service.FinancialReportService;
+import demo.demo.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -14,6 +16,7 @@ import java.util.List;
 public class FinancialReportServiceImpl implements FinancialReportService {
 
     private final FinancialReportRepo financialReportRepo;
+    private final OrderService orderService;
 
     @Override
     public List<FinancialReport> getAllFinancialReports() {
@@ -28,8 +31,14 @@ public class FinancialReportServiceImpl implements FinancialReportService {
     }
 
     @Override
-    public FinancialReport addNewFinancialReport(FinancialReport financialReport) {
-        return financialReportRepo.save(financialReport);
+    public void generateNewFinancialReport(LocalDate dateFrom, LocalDate dateTo) {
+        FinancialReport financialReport = new FinancialReport();
+        financialReport.setDateFrom(dateFrom);
+        financialReport.setDateTo(dateTo);
+        financialReport.setType("Income");
+        financialReport.setMoneyEarned(orderService.getCountedPriceBetweenDate(dateFrom,dateTo));
+
+        financialReportRepo.save(financialReport);
     }
 
     @Override

@@ -59,6 +59,11 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
         appUserRepo.save(appUser);
     }
 
+    @Override
+    public List<AppUser> getAllActiveOrNotActiveAppUsers(boolean enabled) {
+        return appUserRepo.findAllByEnabled(enabled);
+    }
+
     public List<AppUser> getAllAppUsers() {
         return appUserRepo.findAll();
     }

@@ -81,4 +81,16 @@ public class AssortmentServiceImpl implements AssortmentService {
     public void deleteAssortment(Long id) {
         assortmentRepo.deleteById(id);
     }
+
+    @Override
+    public boolean isAssortmentAvailable(Assortment assortment) {
+        Optional<Assortment> optionalAssortment = assortmentRepo.findById(assortment.getId());
+
+        if (optionalAssortment.isPresent()) {
+            Assortment dbAssortment = optionalAssortment.get();
+            return dbAssortment.getAvailability() == 1;
+        } else {
+            throw new AssortmentNotFoundException("Assortment by id: " + assortment.getId() + " was not found!");
+        }
+    }
 }

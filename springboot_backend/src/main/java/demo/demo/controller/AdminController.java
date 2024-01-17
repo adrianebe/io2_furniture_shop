@@ -19,7 +19,7 @@ public class AdminController {
     private final AppUserService appUserService;
     private final AppUserMapper appUserMapper;
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<AppUserDto>> getAllAppUsers() {
         return ResponseEntity.ok
                 (appUserService.getAllAppUsers()
@@ -28,7 +28,16 @@ public class AdminController {
                         .toList());
     }
 
-    @PostMapping()
+    @GetMapping("users/{enabled}")
+    public ResponseEntity<List<AppUserDto>> getAllActiveOrNotActiveAppUsers(@PathVariable boolean enabled){
+        return ResponseEntity.ok(
+                appUserService.getAllActiveOrNotActiveAppUsers(enabled)
+                        .stream()
+                        .map(appUserMapper::mapToResponse)
+                        .toList());
+    }
+
+    @PostMapping
     public ResponseEntity<?> addNewAppUser(@RequestBody AppUser appUser) {
         appUserService.addNewAppUser(appUser);
 

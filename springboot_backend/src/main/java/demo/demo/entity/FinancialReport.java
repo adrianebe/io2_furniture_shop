@@ -17,7 +17,10 @@ public class FinancialReport {
     private Long id;
 
     @Column(name = "type")
-    private int type;
+    private String type;
+
+    @Column(name = "money_earned")
+    private double moneyEarned;
 
     @Column(name = "date_from")
     private LocalDate dateFrom;

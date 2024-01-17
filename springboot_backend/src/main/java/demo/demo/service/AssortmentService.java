@@ -19,4 +19,6 @@ public interface AssortmentService {
     Assortment updateAssortment(Long assortmentId, Assortment updatedAssortment);
 
     void deleteAssortment(Long assortmentId);
+
+    boolean isAssortmentAvailable(Assortment assortment);
 }
