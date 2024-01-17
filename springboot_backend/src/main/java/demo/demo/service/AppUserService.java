@@ -4,7 +4,6 @@ import demo.demo.entity.AppUser;
 import demo.demo.entity.enums.Role;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface AppUserService extends UserDetailsService {
