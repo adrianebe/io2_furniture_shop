@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fbaab30d-ee7b-48b6-9604-b767f7561075" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/login-form/login-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/login-form/login-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/login-form/login-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/login-form/login-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/services/axios.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/services/axios.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AppUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/GuestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/entity/Assortment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/entity/Assortment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/entity/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/entity/Complaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/entity/FinancialReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/entity/FinancialReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/exception/GlobalControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/exception/GlobalControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/repository/AppUserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/repository/AppUserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/repository/ComplaintRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/repository/ComplaintRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/repository/OrderRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/AssortmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/AssortmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/ComplaintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/ComplaintService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/FinancialReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/FinancialReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AppUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AssortmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AssortmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/ComplaintServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/ComplaintServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/FinancialReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/FinancialReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AppUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AppUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/dto/OrderDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/dto/OrderDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/entity/Assortment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/entity/Assortment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/entity/Complaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/entity/Complaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/entity/FinancialReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/entity/FinancialReport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/entity/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/exception/GlobalControllerExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/exception/GlobalControllerExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/mapper/OrderMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/mapper/OrderMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/repository/AppUserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/repository/AppUserRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/repository/ComplaintRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/repository/ComplaintRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/repository/OrderRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/repository/OrderRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/AppUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/AssortmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/AssortmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/ComplaintService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/ComplaintService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/FinancialReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/FinancialReportService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AppUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AppUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AssortmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AssortmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AuthServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AuthServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/ComplaintServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/ComplaintServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/FinancialReportServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/FinancialReportServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/AppUserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/AppUserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/OrderMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/OrderMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-demo.demo.DemoApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/demo.demo.DemoApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/demo/demo/DemoApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2b61rtizr6GQDjFu0b92TPgdt6r" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/debes/OneDrive/Documents/io2_furniture_shop/springboot_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="demo.demo.DemoApplication" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="demo.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DemoApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fbaab30d-ee7b-48b6-9604-b767f7561075" name="Changes" comment="" />
+      <created>1705520919636</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705520919636</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -9,6 +9,7 @@ import { AxiosService } from '../services/axios.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent{
+  // componentToShow
 
   constructor(private axiosService: AxiosService) {}
   onLogin(input: any): void {
@@ -18,6 +19,8 @@ export class LoginComponent{
       {
         email: input.email,
         password: input.password
+      }).then(response => {
+          this.axiosService.setAuthToken(response.data.token);
       }
     )
   }

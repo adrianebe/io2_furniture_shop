@@ -4,6 +4,7 @@ import demo.demo.entity.AppUser;
 import demo.demo.entity.Assortment;
 import demo.demo.entity.Order;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface OrderService {
@@ -17,4 +18,6 @@ public interface OrderService {
     void deleteOrder(Long id);
 
     Order getOrderById(Long orderId);
+
+    double getCountedPriceBetweenDate(LocalDate dateFrom, LocalDate dateTo);
 }

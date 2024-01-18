@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -34,14 +36,13 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> register(@RequestBody RegisterDto registerDto) {
-        if (authService.registerUser(
+        authService.registerUser(
                 registerDto.name(),
                 registerDto.lastName(),
                 registerDto.email(),
-                registerDto.password())) {
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        }
+                registerDto.password());
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
 }

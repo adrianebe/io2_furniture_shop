@@ -55,10 +55,6 @@ public class AssortmentServiceImpl implements AssortmentService {
                 existingAssortment.setName(updatedAssortment.getName());
             }
 
-            if (updatedAssortment.getType() != null) {
-                existingAssortment.setType(updatedAssortment.getType());
-            }
-
             if (updatedAssortment.getRoomType() != null) {
                 existingAssortment.setRoomType(updatedAssortment.getRoomType());
             }
@@ -84,5 +80,17 @@ public class AssortmentServiceImpl implements AssortmentService {
     @Override
     public void deleteAssortment(Long id) {
         assortmentRepo.deleteById(id);
+    }
+
+    @Override
+    public boolean isAssortmentAvailable(Assortment assortment) {
+        Optional<Assortment> optionalAssortment = assortmentRepo.findById(assortment.getId());
+
+        if (optionalAssortment.isPresent()) {
+            Assortment dbAssortment = optionalAssortment.get();
+            return dbAssortment.getAvailability() == 1;
+        } else {
+            throw new AssortmentNotFoundException("Assortment by id: " + assortment.getId() + " was not found!");
+        }
     }
 }

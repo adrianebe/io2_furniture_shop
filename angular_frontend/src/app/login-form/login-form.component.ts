@@ -1,4 +1,4 @@
-import { Component, EventEmitter, NgModule, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,22 +16,12 @@ export class LoginFormComponent{
   password: string = "";
 
   onSubmitLogin(): void {
-    // this.onSubmitLoginEvent.emit({"email": this.email, "password": this.password});
     const formData = {"email": this.email, "password": this.password};
     console.log('Przekazane dane:', formData);
     this.onSubmitLoginEvent.emit(formData);
   }
 
-
   passwordFieldType: string = 'password';
-
-  updatePassword(event: any) {
-    this.password = event.target.value;
-  }
-
-  updateEmail(event: any) {
-    this.email = event.target.value;
-  }
 
   showPassword() {
     this.passwordFieldType = 'text';

@@ -7,20 +7,20 @@ import demo.demo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("api/v1/admin")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AdminController {
 
     private final AppUserService appUserService;
     private final AppUserMapper appUserMapper;
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<AppUserDto>> getAllAppUsers() {
         return ResponseEntity.ok
                 (appUserService.getAllAppUsers()
@@ -29,7 +29,16 @@ public class AdminController {
                         .toList());
     }
 
-    @PostMapping()
+    @GetMapping("users/{enabled}")
+    public ResponseEntity<List<AppUserDto>> getAllActiveOrNotActiveAppUsers(@PathVariable boolean enabled){
+        return ResponseEntity.ok(
+                appUserService.getAllActiveOrNotActiveAppUsers(enabled)
+                        .stream()
+                        .map(appUserMapper::mapToResponse)
+                        .toList());
+    }
+
+    @PostMapping
     public ResponseEntity<?> addNewAppUser(@RequestBody AppUser appUser) {
         appUserService.addNewAppUser(appUser);
 

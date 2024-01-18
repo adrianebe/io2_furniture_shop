@@ -11,32 +11,37 @@ export class AxiosService {
     axios.defaults.headers.post['Content-Type'] = 'application/json';
   }
 
-  // getAuthToken(): string | null {
-  //   return window.localStorage.getItem("auth_token");
-  // }
+  getAuthToken(): string | null {
+    console.log("getAuthToken")
+    return window.localStorage.getItem("auth_token");
+  }
 
-  // setAuthToken(token: string | null): void {
-  //   if (token !== null) {
-  //     window.localStorage.setItem("auth_token", token);
-  //   } else {
-  //     window.localStorage.removeItem("auth_token");
-  //   }
-  // }
+  setAuthToken(token: string | null): void {
+    console.log('Ustawianie tokena:', token);
+
+    if (token !== null) {
+      window.localStorage.setItem("auth_token", token);
+    } else {
+      window.localStorage.removeItem("auth_token");
+    }
+  }
 
   request(method: Method, url: string, data: any): Promise<any> {
-  //   let headers: any = {};
+    let headers: any = {};
 
-  //   if (this.getAuthToken() !== null) {
-  //     headers = {"Authorization": "Bearer " + this.getAuthToken()};
-  //   }
-
-    const axiosConfig: AxiosRequestConfig = {
+    if (this.getAuthToken() !== null) {
+      headers = {"Authorization": "Bearer " + this.getAuthToken()};
+    }
+    console.log(headers);
+    console.log(localStorage);
+    return axios({
       method: method,
       url: url,
       data: data,
-      // headers: headers
-    };
+      headers: headers
+    });
 
-    return axios(axiosConfig);
   }
+
+
 }

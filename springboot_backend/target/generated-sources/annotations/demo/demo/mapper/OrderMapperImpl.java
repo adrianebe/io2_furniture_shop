@@ -1,8 +1,10 @@
 package demo.demo.mapper;
 
+import demo.demo.dto.AssortmentDto;
 import demo.demo.dto.OrderDto;
 import demo.demo.entity.Assortment;
 import demo.demo.entity.Order;
+import demo.demo.entity.enums.OrderStatus;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-10T19:18:01+0100",
+    date = "2024-01-17T22:31:53+0100",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.9 (Amazon.com Inc.)"
 )
 @Component
@@ -24,22 +26,52 @@ public class OrderMapperImpl implements OrderMapper {
         }
 
         Long id = null;
-        List<Assortment> assortments = null;
+        List<AssortmentDto> assortments = null;
         double price = 0.0d;
         int deliveryType = 0;
         LocalDate deliveryDate = null;
+        OrderStatus orderStatus = null;
+        String deliveryAddress = null;
 
         id = order.getId();
-        List<Assortment> list = order.getAssortments();
-        if ( list != null ) {
-            assortments = new ArrayList<Assortment>( list );
-        }
+        assortments = assortmentListToAssortmentDtoList( order.getAssortments() );
         price = order.getPrice();
         deliveryType = order.getDeliveryType();
         deliveryDate = order.getDeliveryDate();
+        orderStatus = order.getOrderStatus();
+        deliveryAddress = order.getDeliveryAddress();
 
-        OrderDto orderDto = new OrderDto( id, assortments, price, deliveryType, deliveryDate );
+        OrderDto orderDto = new OrderDto( id, assortments, price, deliveryType, deliveryDate, orderStatus, deliveryAddress );
 
         return orderDto;
+    }
+
+    protected AssortmentDto assortmentToAssortmentDto(Assortment assortment) {
+        if ( assortment == null ) {
+            return null;
+        }
+
+        String name = null;
+        double price = 0.0d;
+
+        name = assortment.getName();
+        price = assortment.getPrice();
+
+        AssortmentDto assortmentDto = new AssortmentDto( name, price );
+
+        return assortmentDto;
+    }
+
+    protected List<AssortmentDto> assortmentListToAssortmentDtoList(List<Assortment> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<AssortmentDto> list1 = new ArrayList<AssortmentDto>( list.size() );
+        for ( Assortment assortment : list ) {
+            list1.add( assortmentToAssortmentDto( assortment ) );
+        }
+
+        return list1;
     }
 }

@@ -7,12 +7,12 @@
           <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm" name="loginForm">
             <div class="form-group col-md-8 offset-md-2">
               <label for="email">E-mail:</label>
-              <input type="email" class="form-control" id="login" name="email" placeholder="Twój e-mail"(input)="updateEmail($event)" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Twój e-mail" [(ngModel)]="email" required>
             </div>
             <div class="form-group col-md-8 offset-md-2">
               <label for="password">Hasło:</label>
               <div class="input-group">
-                <input type="{{ passwordFieldType }}" class="form-control" id="password" name="password" placeholder="Twoje hasło" (input)="updatePassword($event)" required>
+                <input type="{{ passwordFieldType }}" class="form-control" id="password" name="password" placeholder="Twoje hasło" [(ngModel)]="password" required>
               </div>
               <button class="btn btn-outline-secondary border-0" type="button" (mousedown)="showPassword()" (mouseup)="hidePassword()">👁️</button>
             </div>

@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 
 public interface AppUserService extends UserDetailsService {
+    AppUser getCurrentUser();
+
     List<AppUser> getAllAppUsers();
 
     List<AppUser> getAllAppUsersByRole(Role role);
@@ -19,8 +21,7 @@ public interface AppUserService extends UserDetailsService {
 
     void deleteAppUser(Long id);
 
-    boolean doesAppUserExist(String email);
+    void registerAppUser(String name, String lastName, String email, String password);
 
-    void registerAppUser(String email, String name, String lastName, String password);
-
+    List<AppUser> getAllActiveOrNotActiveAppUsers(boolean enabled);
 }
