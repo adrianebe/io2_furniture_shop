@@ -9,19 +9,14 @@ import { AxiosService } from '../services/axios.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent{
-  // componentToShow
 
   constructor(private axiosService: AxiosService) {}
-  onLogin(input: any): void {
+  onLogin(formData: any): void {
     this.axiosService.request(
       "POST",
-      "signin",
-      {
-        email: input.email,
-        password: input.password
-      }).then(response => {
-          this.axiosService.setAuthToken(response.data.token);
-      }
-    )
+      "signin", formData)
+  //     .then(response => {
+  //         this.axiosService.setAuthToken(response.data.token);
+  //     })
   }
 }
