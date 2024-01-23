@@ -33,7 +33,6 @@ public class AppUserController {
 
     @GetMapping("orders")
     public ResponseEntity<List<OrderDto>> getAllAppUserOrders() {
-
         AppUser currentUser = appUserService.getCurrentUser();
 
         return ResponseEntity.ok(orderService.getAllOrdersByAppUserId(currentUser.getId())
@@ -43,7 +42,7 @@ public class AppUserController {
     }
 
     @GetMapping("orders/{orderId}")
-    public ResponseEntity<OrderDto> getSpecificOrderDetails(@PathVariable Long orderId) {
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable Long orderId) {
         Order order = orderService.getOrderById(orderId);
 
         return ResponseEntity.ok(orderMapper.mapToDto(order));
@@ -52,14 +51,15 @@ public class AppUserController {
 
     @PostMapping("orders")
     public ResponseEntity<?> createOrder(@RequestBody AssortmentListDto assortmentIds) {
-
         AppUser currentUser = appUserService.getCurrentUser();
+        String deliveryAddress = assortmentIds.deliveryAddress();
 
         List<Assortment> assortments = assortmentIds.assortmentIds().stream()
                 .map(assortmentService::getAssortmentById)
                 .collect(Collectors.toList());
 
-        orderService.addNewOrder(currentUser, assortments);
+        orderService.createNewOrder(currentUser, deliveryAddress, assortments);
+
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -73,22 +73,30 @@ public class AppUserController {
     @GetMapping("complaints")
     public ResponseEntity<List<Complaint>> getAllAppUserComplaints() {
         AppUser currentUser = appUserService.getCurrentUser();
+        List<Complaint> complaints = complaintService.getAllAppUserComplaints(currentUser.getId());
 
-        return ResponseEntity.ok(complaintService
-                .getAllAppUserComplaints(currentUser.getId()));
+        return ResponseEntity.ok(complaints);
+    }
+
+    @GetMapping("complaints/{complaintId}")
+    public ResponseEntity<Complaint> getComplaintById(@PathVariable Long complaintId) {
+        Complaint complaint = complaintService.getComplaintById(complaintId);
+
+        return ResponseEntity.ok(complaint);
     }
 
     @PostMapping("complaints")
     public ResponseEntity<?> addNewComplaint(@RequestBody Complaint complaint) {
         AppUser currentUser = appUserService.getCurrentUser();
+        Order order = orderService.getOrderById(complaint.getOrder().getId());
 
-        complaintService.addNewComplaint(complaint);
+        complaintService.createNewComplaint(currentUser, order, complaint);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("complaints/{complaintId}")
-    public ResponseEntity<?> deleteAppUsersComplaint(@PathVariable Long complaintId){
+    public ResponseEntity<?> deleteAppUserComplaint(@PathVariable Long complaintId) {
         AppUser currentUser = appUserService.getCurrentUser();
 
         complaintService.deleteAppUserComplaint(complaintId, currentUser.getId());

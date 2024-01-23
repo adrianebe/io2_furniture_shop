@@ -11,6 +11,12 @@ import java.util.List;
 public interface OrderRepo extends JpaRepository<Order, Long> {
     List<Order> findAllByAppUserId(Long id);
 
-    @Query(value = "SELECT COALESCE(SUM(o.price), 0) FROM Orders o WHERE o.order_date BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
-    double getCountedPriceBetweenDate(@Param("dateFrom") LocalDate dateFrom, @Param("dateTo") LocalDate dateTo);
+    @Query(value = "SELECT COALESCE(SUM(o.price), 0) " +
+            "FROM Orders o " +
+            "WHERE o.order_date " +
+            "BETWEEN :dateFrom " +
+            "AND :dateTo",
+            nativeQuery = true)
+    double getCountedPriceBetweenDate(@Param("dateFrom") LocalDate dateFrom,
+                                      @Param("dateTo") LocalDate dateTo);
 }

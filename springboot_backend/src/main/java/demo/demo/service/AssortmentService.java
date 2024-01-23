@@ -12,11 +12,11 @@ public interface AssortmentService {
 
     List<Assortment> getAllAssortmentsByRoomType(String roomType);
 
-    Assortment getAssortmentByIdAndRoomType(String roomType, Long assortmentId);
+    Assortment getAssortmentByIdAndRoomType(Long assortmentId, String roomType);
 
-    Assortment addNewAssortment(Assortment assortment);
+    void createNewAssortment(Assortment assortment);
 
-    Assortment updateAssortment(Long assortmentId, Assortment updatedAssortment);
+    void updateAssortment(Long assortmentId, Assortment updatedAssortment);
 
     void deleteAssortment(Long assortmentId);
 

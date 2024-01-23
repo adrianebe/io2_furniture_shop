@@ -1,19 +1,17 @@
 package demo.demo.service.impl;
 
 import demo.demo.entity.Assortment;
-import demo.demo.exception.AssortmentNotFoundException;
+import demo.demo.exception.custom.AssortmentNotFoundException;
 import demo.demo.repository.AssortmentRepo;
 import demo.demo.service.AssortmentService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class AssortmentServiceImpl implements AssortmentService {
 
     private final AssortmentRepo assortmentRepo;
@@ -35,17 +33,17 @@ public class AssortmentServiceImpl implements AssortmentService {
     }
 
     @Override
-    public Assortment getAssortmentByIdAndRoomType(String roomType, Long assortmentId) {
+    public Assortment getAssortmentByIdAndRoomType(Long assortmentId, String roomType) {
         return assortmentRepo.findOneByIdAndRoomType(assortmentId, roomType);
     }
 
     @Override
-    public Assortment addNewAssortment(Assortment assortment) {
-        return assortmentRepo.save(assortment);
+    public void createNewAssortment(Assortment assortment) {
+        assortmentRepo.save(assortment);
     }
 
     @Override
-    public Assortment updateAssortment(Long assortmentId, Assortment updatedAssortment) {
+    public void updateAssortment(Long assortmentId, Assortment updatedAssortment) {
         Optional<Assortment> existingAssortmentOptional = assortmentRepo.findById(assortmentId);
 
         if (existingAssortmentOptional.isPresent()) {
@@ -67,10 +65,14 @@ public class AssortmentServiceImpl implements AssortmentService {
                 existingAssortment.setDescription(updatedAssortment.getDescription());
             }
 
+            if (updatedAssortment.getPhoto() != null) {
+                existingAssortment.setPhoto(updatedAssortment.getPhoto());
+            }
+
             if (updatedAssortment.getAvailability() != 0) {
                 existingAssortment.setAvailability(updatedAssortment.getAvailability());
             }
-            return assortmentRepo.save(existingAssortment);
+            assortmentRepo.save(existingAssortment);
 
         } else {
             throw new AssortmentNotFoundException("Assortment with Id " + assortmentId + " not found");
@@ -78,8 +80,8 @@ public class AssortmentServiceImpl implements AssortmentService {
     }
 
     @Override
-    public void deleteAssortment(Long id) {
-        assortmentRepo.deleteById(id);
+    public void deleteAssortment(Long assortmentId) {
+        assortmentRepo.deleteById(assortmentId);
     }
 
     @Override
@@ -88,9 +90,11 @@ public class AssortmentServiceImpl implements AssortmentService {
 
         if (optionalAssortment.isPresent()) {
             Assortment dbAssortment = optionalAssortment.get();
+
             return dbAssortment.getAvailability() == 1;
         } else {
             throw new AssortmentNotFoundException("Assortment by id: " + assortment.getId() + " was not found!");
         }
     }
+
 }

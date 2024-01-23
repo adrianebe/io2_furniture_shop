@@ -3,7 +3,8 @@ package demo.demo.dto;
 import demo.demo.entity.enums.ComplaintStatus;
 
 public record ComplaintDto(
-        String description,
+        Long id,
+        String response,
         ComplaintStatus status
 ) {
 }

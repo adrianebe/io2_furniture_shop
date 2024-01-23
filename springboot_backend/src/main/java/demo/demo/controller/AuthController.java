@@ -6,7 +6,6 @@ import demo.demo.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,14 +20,10 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
-        try {
-            if (!authService.validateCredentials(loginDto.email(), loginDto.password())) {
-                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-            }
-        } catch (UsernameNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-        return ResponseEntity.ok(authService.getJwtToken(loginDto.email()));
+        authService.validateCredentials(loginDto.email(), loginDto.password());
+        String jwtToken = authService.getJwtToken(loginDto.email());
+
+        return ResponseEntity.ok(jwtToken);
     }
 
 
@@ -38,7 +33,8 @@ public class AuthController {
                 registerDto.name(),
                 registerDto.lastName(),
                 registerDto.email(),
-                registerDto.password());
+                registerDto.password()
+        );
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

@@ -1,7 +1,7 @@
 package demo.demo.service.impl;
 
 import demo.demo.entity.FinancialReport;
-import demo.demo.exception.FinancialReportNotFoundException;
+import demo.demo.exception.custom.FinancialReportNotFoundException;
 import demo.demo.repository.FinancialReportRepo;
 import demo.demo.service.FinancialReportService;
 import demo.demo.service.OrderService;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class FinancialReportServiceImpl implements FinancialReportService {
 
     private final FinancialReportRepo financialReportRepo;
@@ -36,7 +36,7 @@ public class FinancialReportServiceImpl implements FinancialReportService {
         financialReport.setDateFrom(dateFrom);
         financialReport.setDateTo(dateTo);
         financialReport.setType("Income");
-        financialReport.setMoneyEarned(orderService.getCountedPriceBetweenDate(dateFrom,dateTo));
+        financialReport.setMoneyEarned(orderService.getCountedPriceBetweenDate(dateFrom, dateTo));
 
         financialReportRepo.save(financialReport);
     }
