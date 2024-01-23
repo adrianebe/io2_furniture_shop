@@ -11,11 +11,6 @@ export class AxiosService {
   }
 
   request(method: Method, url: string, data: any): Promise<any> {
-    let headers: any = {};
-
-
-
-    // Wpisz dane na sztywno
 
     console.log("data", data.formData);
     return axios({

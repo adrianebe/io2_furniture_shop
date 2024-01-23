@@ -4,6 +4,7 @@ import demo.demo.dto.LoginDto;
 import demo.demo.dto.RegisterDto;
 import demo.demo.service.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,9 +30,14 @@ public class AuthController {
             }
         } catch (UsernameNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-        return ResponseEntity.ok(authService.getJwtToken(loginDto.email()));
+        }        String jwtToken = authService.getJwtToken(loginDto.email());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + jwtToken);
+
+        return ResponseEntity.ok().headers(headers).body("Login successful");
     }
+
 
 
     @PostMapping("/signup")

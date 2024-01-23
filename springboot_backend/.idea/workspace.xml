@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbaab30d-ee7b-48b6-9604-b767f7561075" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/services/axios.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/services/axios.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AuthController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

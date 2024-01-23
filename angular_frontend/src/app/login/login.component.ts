@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginFormComponent } from '../login-form/login-form.component';
-import { AxiosService } from '../services/axios.service';
+import { AxiosLoginService } from '../services/axios-login.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -10,9 +10,9 @@ import { AxiosService } from '../services/axios.service';
 })
 export class LoginComponent{
 
-  constructor(private axiosService: AxiosService) {}
+  constructor(private axiosLoginService: AxiosLoginService) {}
   onLogin(formData: any): void {
-    this.axiosService.request(
+    this.axiosLoginService.request(
       "POST",
       "signin", formData)
   //     .then(response => {
