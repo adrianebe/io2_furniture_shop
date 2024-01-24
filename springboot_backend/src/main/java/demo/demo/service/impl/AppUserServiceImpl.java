@@ -2,8 +2,8 @@ package demo.demo.service.impl;
 
 import demo.demo.entity.AppUser;
 import demo.demo.entity.enums.Role;
-import demo.demo.exception.EmailAlreadyExistsException;
-import demo.demo.exception.UserNotFoundException;
+import demo.demo.exception.custom.EmailAlreadyExistsException;
+import demo.demo.exception.custom.UserNotFoundException;
 import demo.demo.repository.AppUserRepo;
 import demo.demo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 
     private final AppUserRepo appUserRepo;
@@ -78,7 +78,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
                 .orElseThrow(() -> new UserNotFoundException("User by id: " + id + " was not found!"));
     }
 
-    public void addNewAppUser(AppUser appUser) {
+    public void createNewAppUser(AppUser appUser) {
 
         if (appUserRepo.existsByEmail(appUser.getEmail())) {
             throw new EmailAlreadyExistsException("User with email: " + appUser.getEmail() + " already exists!");
@@ -89,7 +89,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
         appUserRepo.save(appUser);
     }
 
-    public AppUser updateAppUser(Long userId, AppUser appUser) {
+    public void updateAppUser(Long userId, AppUser appUser) {
         Optional<AppUser> existingUserOptional = appUserRepo.findById(userId);
 
         if (existingUserOptional.isPresent()) {
@@ -115,14 +115,14 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
                 existingUser.setRole(appUser.getRole());
             }
 
-            return appUserRepo.save(existingUser);
+            appUserRepo.save(existingUser);
         } else {
-            throw new UserNotFoundException("User by id: " + userId + "was not found!");
+            throw new UserNotFoundException("User by id: " + userId + " was not found!");
         }
     }
 
-    public void deleteAppUser(Long id) {
-        appUserRepo.deleteById(id);
+    public void deleteAppUser(Long appUserId) {
+        appUserRepo.deleteById(appUserId);
     }
 
 }

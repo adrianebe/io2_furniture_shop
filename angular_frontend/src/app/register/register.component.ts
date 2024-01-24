@@ -14,8 +14,7 @@ export class RegisterComponent {
 
   onRegister(formData: any): void {
     this.axiosService
-      .request('POST', 'signup', formData
-      )
+      .request('POST', 'signup', formData)
 
   }
 }

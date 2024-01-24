@@ -13,11 +13,11 @@ public interface AppUserService extends UserDetailsService {
 
     List<AppUser> getAllAppUsersByRole(Role role);
 
-    AppUser getAppUserById(Long id);
+    AppUser getAppUserById(Long appUserId);
 
-    void addNewAppUser(AppUser appUser);
+    void createNewAppUser(AppUser appUser);
 
-    AppUser updateAppUser(Long userId, AppUser appUser);
+    void updateAppUser(Long userId, AppUser appUser);
 
     void deleteAppUser(Long id);
 

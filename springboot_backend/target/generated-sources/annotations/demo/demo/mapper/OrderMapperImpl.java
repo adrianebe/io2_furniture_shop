@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-17T22:31:53+0100",
+    date = "2024-01-23T20:25:44+0100",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.9 (Amazon.com Inc.)"
 )
 @Component
@@ -51,13 +51,15 @@ public class OrderMapperImpl implements OrderMapper {
             return null;
         }
 
+        Long id = null;
         String name = null;
         double price = 0.0d;
 
+        id = assortment.getId();
         name = assortment.getName();
         price = assortment.getPrice();
 
-        AssortmentDto assortmentDto = new AssortmentDto( name, price );
+        AssortmentDto assortmentDto = new AssortmentDto( id, name, price );
 
         return assortmentDto;
     }

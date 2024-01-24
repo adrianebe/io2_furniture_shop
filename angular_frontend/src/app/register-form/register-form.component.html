@@ -33,7 +33,14 @@
               <div class="input-group">
                 <input type="{{ passwordSecShow }}" class="form-control" id="repeat-password" name="passwordSec" placeholder="Powtórz hasło" [(ngModel)]="passwordSec" required>
               </div>
+
               <button class="btn btn-outline-secondary border-0" type="button" (mousedown)="showSecPassword()" (mouseup)="hideSecPassword()">👁️</button>
+            </div>
+            <div *ngIf="emailError.length > 0" class="alert alert-danger col-md-8 offset-md-2">
+              {{ emailError }}
+            </div>
+            <div *ngIf="passwordError.length > 0" class="alert alert-danger col-md-8 offset-md-2">
+              {{ passwordError }}
             </div>
 
             <div class="form-group d-flex justify-content-center">

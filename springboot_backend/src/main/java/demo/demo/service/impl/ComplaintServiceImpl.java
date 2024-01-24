@@ -1,8 +1,10 @@
 package demo.demo.service.impl;
 
+import demo.demo.entity.AppUser;
 import demo.demo.entity.Complaint;
+import demo.demo.entity.Order;
 import demo.demo.entity.enums.ComplaintStatus;
-import demo.demo.exception.ComplaintNotFoundException;
+import demo.demo.exception.custom.ComplaintNotFoundException;
 import demo.demo.repository.ComplaintRepo;
 import demo.demo.service.ComplaintService;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class ComplaintServiceImpl implements ComplaintService {
 
     private final ComplaintRepo complaintRepo;
@@ -22,30 +24,36 @@ public class ComplaintServiceImpl implements ComplaintService {
     }
 
     @Override
-    public Complaint getSpecificComplaint(Long id) {
-        return complaintRepo.findById(id).
-                orElseThrow(() -> new ComplaintNotFoundException("Complaint by id: " + id + " was not found!"));
+    public Complaint getComplaintById(Long complaintId) {
+        return complaintRepo.findById(complaintId).
+                orElseThrow(() -> new ComplaintNotFoundException("Complaint by id: " + complaintId + " was not found!"));
 
     }
 
     @Override
-    public void addNewComplaint(Complaint complaint) {
+    public void createNewComplaint(AppUser appUser, Order order, Complaint complaint) {
+
+        complaint.setAppUser(appUser);
+        complaint.setOrder(order);
+        complaint.setStatus(ComplaintStatus.OPEN);
+        complaint.setResponse("");
+
         complaintRepo.save(complaint);
     }
 
     @Override
-    public void updateComplaint(Long complaintId, String description, ComplaintStatus status) {
-        Complaint complaint = getSpecificComplaint(complaintId);
+    public void updateComplaint(Long complaintId, String response, ComplaintStatus status) {
+        Complaint complaint = getComplaintById(complaintId);
 
-        complaint.setDescription(description);
+        complaint.setResponse(response);
         complaint.setStatus(status);
 
         complaintRepo.save(complaint);
     }
 
     @Override
-    public void deleteComplaint(Long id) {
-        complaintRepo.deleteById(id);
+    public void deleteComplaint(Long complaintId) {
+        complaintRepo.deleteById(complaintId);
     }
 
     @Override
@@ -54,7 +62,7 @@ public class ComplaintServiceImpl implements ComplaintService {
     }
 
     @Override
-    public void deleteAppUserComplaint(Long id, Long appUserId) {
-        complaintRepo.deleteByIdAndAppUserId(id, appUserId);
+    public void deleteAppUserComplaint(Long complaintId, Long appUserId) {
+        complaintRepo.deleteByIdAndAppUserId(complaintId, appUserId);
     }
 }

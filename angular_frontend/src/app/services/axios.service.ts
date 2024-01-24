@@ -12,11 +12,11 @@ export class AxiosService {
 
   request(method: Method, url: string, data: any): Promise<any> {
 
-    console.log("data", data.formData);
+    console.log("data", data);
     return axios({
       method: method,
       url: url,
-      data: data.formData
+      data: data
     });
   }
 }

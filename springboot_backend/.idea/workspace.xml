@@ -5,8 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbaab30d-ee7b-48b6-9604-b767f7561075" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/auth/auth.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/auth/auth.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/auth/auth.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/auth/auth.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/boards/boards.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/boards/boards.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/boards/boards.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/boards/boards.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/buttons/buttons.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/buttons/buttons.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/buttons/buttons.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/buttons/buttons.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AppUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/GuestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/dto/AssortmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/dto/AssortmentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/dto/AssortmentListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/dto/AssortmentListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/dto/ComplaintDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/dto/ComplaintDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/exception/GlobalControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/exception/GlobalControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/repository/OrderRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/AssortmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/AssortmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/ComplaintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/ComplaintService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AppUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AssortmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AssortmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/ComplaintServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/ComplaintServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/FinancialReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/FinancialReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AppUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AppUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/GuestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/GuestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/dto/AssortmentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/dto/AssortmentDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/dto/AssortmentListDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/dto/AssortmentListDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/dto/ComplaintDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/dto/ComplaintDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/exception/GlobalControllerExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/exception/GlobalControllerExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/mapper/OrderMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/mapper/OrderMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/AppUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/AssortmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/AssortmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/ComplaintService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/ComplaintService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AppUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AppUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AssortmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AssortmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AuthServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AuthServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/ComplaintServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/ComplaintServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/FinancialReportServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/FinancialReportServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/AppUserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/AppUserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/OrderMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/OrderMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

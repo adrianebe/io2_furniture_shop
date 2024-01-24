@@ -14,13 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/admin")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class AdminController {
 
     private final AppUserService appUserService;
     private final AppUserMapper appUserMapper;
 
-    @GetMapping
+    @GetMapping("users")
     public ResponseEntity<List<AppUserDto>> getAllAppUsers() {
         return ResponseEntity.ok
                 (appUserService.getAllAppUsers()
@@ -30,7 +29,7 @@ public class AdminController {
     }
 
     @GetMapping("users/{enabled}")
-    public ResponseEntity<List<AppUserDto>> getAllActiveOrNotActiveAppUsers(@PathVariable boolean enabled){
+    public ResponseEntity<List<AppUserDto>> getAllActiveOrNotActiveAppUsers(@PathVariable boolean enabled) {
         return ResponseEntity.ok(
                 appUserService.getAllActiveOrNotActiveAppUsers(enabled)
                         .stream()
@@ -38,21 +37,21 @@ public class AdminController {
                         .toList());
     }
 
-    @PostMapping
+    @PostMapping("users")
     public ResponseEntity<?> addNewAppUser(@RequestBody AppUser appUser) {
-        appUserService.addNewAppUser(appUser);
+        appUserService.createNewAppUser(appUser);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("{appUserId}")
+    @PutMapping("users/{appUserId}")
     public ResponseEntity<?> updateAppUser(@PathVariable Long appUserId, @RequestBody AppUser appUser) {
-        AppUser updatedUser = appUserService.updateAppUser(appUserId, appUser);
+        appUserService.updateAppUser(appUserId, appUser);
 
-        return ResponseEntity.ok(updatedUser);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("{appUserId}")
+    @DeleteMapping("users/{appUserId}")
     public ResponseEntity<?> deleteAppUser(@PathVariable Long appUserId) {
         appUserService.deleteAppUser(appUserId);
 
