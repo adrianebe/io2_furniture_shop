@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AssortmentService {
 
-  apiUrl = 'http://localhost:8080/api/v1'
+  apiUrl = 'http://localhost:8080/api/v1/guest'
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,10 @@ export class AssortmentService {
 
   getAssortmentById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/assortment/${id}`);
+  }
+
+  getAssortmentByRoomType(roomType: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/assortment/${roomType}`);
   }
 
   addAssortment(Assortment: any): Observable<any> {
@@ -31,5 +35,5 @@ export class AssortmentService {
     return this.http.delete<any>(`${this.apiUrl}/assortment/${id}`);
   }
 
-  
+
 }

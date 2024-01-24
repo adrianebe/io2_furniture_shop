@@ -1,11 +1,9 @@
 <div class="card">
   <img src="./assets/chair.jpg" class="card-img-top img-fluid" alt="chair">
   <div class="card-body">
-    <a href="produkt.html" class="card-link">
-      <h5 class="card-title">Nazwa Produktu 1</h5>
-      <p class="card-text">Cena: $100</p>
+      <h5 class="card-title">{{assortmentItem.name}}</h5>
+      <p class="card-text">Cena: ${{assortmentItem.price}}</p>
     <hr>
-    </a>
-    <a href="#" class="btn btn-custom">Dodaj do koszyka</a>
+    <a [href]="'product/' + assortmentItem.id" class="btn btn-custom">Przejdź do produktu</a>
   </div>
 </div>

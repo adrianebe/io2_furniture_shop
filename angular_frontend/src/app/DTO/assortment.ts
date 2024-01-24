@@ -1,9 +1,10 @@
 export interface Assortment {
   id: number;
-  name: string;
-  type: string;
-  roomType: string;
-  price: number;
-  description: string;
   availability: number;
+  description: string;
+  name: string;
+  photo: string;
+  price: number;
+  roomType: string;
+
 }

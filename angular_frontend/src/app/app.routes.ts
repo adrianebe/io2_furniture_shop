@@ -16,6 +16,8 @@ import { AdminCrudAddComponent } from './admin-crud-add/admin-crud-add.component
 import { AdminCrudEditComponent } from './admin-crud-edit/admin-crud-edit.component';
 import { AdminCrudComponent } from './admin-crud/admin-crud.component';
 import { StatuteComponent } from './statute/statute.component';
+import { DetailProductComponent } from './detail-product/detail-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'bathroom', component: BathroomComponent},
@@ -33,6 +35,8 @@ export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'complaints', component: ComplaintsComponent},
 {path: 'crud', component: AdminCrudComponent},
 {path: 'crud_edit', component: AdminCrudEditComponent},
-{path: 'crud_add', component: AdminCrudAddComponent}];
+{path: 'crud_add', component: AdminCrudAddComponent},
+{path: 'product/:id', component: DetailProductComponent},
+{path: 'edit_product/:id', component: EditProductComponent}];
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-detail-window',
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './detail-window.component.html',
   styleUrl: './detail-window.component.scss'
 })
-export class DetailWindowComponent {
+export class DetailWindowComponent implements OnInit{
+  @Input() assortmentItem: any;
 
+  ngOnInit(): void {
+
+  }
 }
