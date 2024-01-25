@@ -108,7 +108,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
             }
 
             if (appUser.getPassword() != null) {
-                existingUser.setPassword(appUser.getPassword());
+                existingUser.setPassword(new BCryptPasswordEncoder().encode(appUser.getPassword()));
             }
 
             if (appUser.getRole() != null) {

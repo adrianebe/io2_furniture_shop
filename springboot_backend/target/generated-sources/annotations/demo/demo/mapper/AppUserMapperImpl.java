@@ -2,12 +2,13 @@ package demo.demo.mapper;
 
 import demo.demo.dto.AppUserDto;
 import demo.demo.entity.AppUser;
+import demo.demo.entity.enums.Role;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-23T16:50:19+0100",
+    date = "2024-01-25T11:44:17+0100",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.10 (Amazon.com Inc.)"
 )
 @Component
@@ -23,13 +24,15 @@ public class AppUserMapperImpl implements AppUserMapper {
         String name = null;
         String lastName = null;
         String email = null;
+        Role role = null;
 
         id = appUser.getId();
         name = appUser.getName();
         lastName = appUser.getLastName();
         email = appUser.getEmail();
+        role = appUser.getRole();
 
-        AppUserDto appUserDto = new AppUserDto( id, name, lastName, email );
+        AppUserDto appUserDto = new AppUserDto( id, name, lastName, email, role );
 
         return appUserDto;
     }
