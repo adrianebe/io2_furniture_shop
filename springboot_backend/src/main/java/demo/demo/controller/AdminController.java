@@ -28,6 +28,13 @@ public class AdminController {
                         .toList());
     }
 
+    @GetMapping("users/oneUser/{appUserId}")
+    public ResponseEntity<AppUser> getAppUserById(@PathVariable Long appUserId) {
+        AppUser appUser = appUserService.getAppUserById(appUserId);
+
+        return ResponseEntity.ok(appUser);
+    }
+
     @GetMapping("users/{enabled}")
     public ResponseEntity<List<AppUserDto>> getAllActiveOrNotActiveAppUsers(@PathVariable boolean enabled) {
         return ResponseEntity.ok(
