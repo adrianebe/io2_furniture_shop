@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { BathroomComponent } from './bathroom/bathroom.component';
 import { BedroomComponent } from './bedroom/bedroom.component';
@@ -18,6 +19,7 @@ import { AdminCrudComponent } from './admin-crud/admin-crud.component';
 import { StatuteComponent } from './statute/statute.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'bathroom', component: BathroomComponent},
@@ -37,6 +39,7 @@ export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'crud_edit/:id', component: AdminCrudEditComponent},
 {path: 'crud_add', component: AdminCrudAddComponent},
 {path: 'product/:id', component: DetailProductComponent},
-{path: 'edit_product/:id', component: EditProductComponent}];
+{path: 'edit_product/:id', component: EditProductComponent},
+{path: 'add_product', component: AddProductComponent}];
 
 
