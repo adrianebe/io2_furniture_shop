@@ -34,7 +34,7 @@ export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'orders', component: OrdersComponent},
 {path: 'complaints', component: ComplaintsComponent},
 {path: 'crud', component: AdminCrudComponent},
-{path: 'crud_edit', component: AdminCrudEditComponent},
+{path: 'crud_edit/:id', component: AdminCrudEditComponent},
 {path: 'crud_add', component: AdminCrudAddComponent},
 {path: 'product/:id', component: DetailProductComponent},
 {path: 'edit_product/:id', component: EditProductComponent}];

@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbaab30d-ee7b-48b6-9604-b767f7561075" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../angular_frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular_frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/controller/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/controller/GuestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/dto/AppUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/dto/AppUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/demo/service/impl/AppUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/controller/GuestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/controller/GuestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/dto/AppUserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/dto/AppUserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/mapper/AppUserMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/mapper/AppUserMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AppUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/demo/service/impl/AppUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/AppUserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/AppUserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/OrderMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/demo/demo/mapper/OrderMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -25,7 +25,7 @@ public class GuestController {
         return ResponseEntity.ok(assortments);
     }
 
-    @GetMapping("assortment/{assortmentId}")
+    @GetMapping("assortment/id/{assortmentId}")
     public ResponseEntity<Assortment> getAssortmentById(@PathVariable Long assortmentId) {
         Assortment assortment = assortmentService.getAssortmentById(assortmentId);
 

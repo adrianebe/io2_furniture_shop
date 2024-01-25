@@ -1,1 +1,33 @@
-<p>admin-crud works!</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Lista użytkowników</h2>
+    <button class="btn btn-custom" (click)="addUser()">Dodaj</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Rola</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.email }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{  user.role  }}</td>
+        <td>
+          <button class="btn btn-custom mr-2" (click)="editUser(user.id)">Edytuj</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteUser(user.id)">Usuń</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

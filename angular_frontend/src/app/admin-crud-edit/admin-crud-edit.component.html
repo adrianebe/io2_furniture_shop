@@ -1,1 +1,40 @@
-<p>admin-crud-edit works!</p>
+<div class="container mt-4">
+  <h2>Edycja użytkownika</h2>
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div class="form-group div-margin">
+      <label for="name">Imię:</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
+    </div>
+    <div class="form-group div-margin">
+      <label for="lastName">Nazwisko:</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+    </div>
+    <div class="form-group div-margin">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <div class="form-group div-margin">
+      <label for="password">Hasło:</label>
+      <div class="input-group">
+        <input type="{{ passwordShow ? 'text' : 'password' }}" class="form-control" id="password" name="password" placeholder="Hasło" [(ngModel)]="user.password" required>
+      </div>
+      <button class="btn btn-outline-secondary border-0" type="button" (click)="showPassword()">👁️</button>
+    </div>
+    <div class="form-group div-margin">
+      <label for="confirmPassword">Powtórz hasło:</label>
+      <div class="input-group">
+        <input type="{{ confirmPasswordShow ? 'text' : 'password' }}" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Powtórz hasło" [(ngModel)]="user.confirmPassword" required>
+      </div>
+      <button class="btn btn-outline-secondary border-0" type="button" (click)="showConfirmPassword()">👁️</button>
+    </div>
+    <div class="form-group div-margin">
+      <label for="role">Rola:</label>
+      <select class="form-control" id="role" name="role" [(ngModel)]="user.role" required>
+        <option value="USER">Użytkownik</option>
+        <option value="EMPLOYEE">Pracownik</option>
+        <option value="ADMIN">Administrator</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-custom" [disabled]="userForm.invalid">Zapisz zmiany</button>
+  </form>
+</div>

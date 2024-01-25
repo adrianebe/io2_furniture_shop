@@ -27,10 +27,10 @@ export class DetailProductComponent implements OnInit{
   }
 
   loadAssortmentItem(id: number): void {
-    this.assortmentService.getAssortment().subscribe(
+    this.assortmentService.getAssortmentById(id).subscribe(
       (data) => {
-        console.log(data)
-        this.assortmentItem = data.find(item => item.id === id);
+        console.log(data, id)
+        this.assortmentItem = data;
 
       },
       (error) => {

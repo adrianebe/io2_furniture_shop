@@ -16,7 +16,7 @@ export class AssortmentService {
   }
 
   getAssortmentById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/assortment/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/assortment/id/${id}`);
   }
 
   getAssortmentByRoomType(roomType: string): Observable<any[]> {
