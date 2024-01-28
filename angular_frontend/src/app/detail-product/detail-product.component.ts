@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AssortmentService } from '../services/assortment.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-detail-product',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './detail-product.component.html',
   styleUrl: './detail-product.component.scss'
 })

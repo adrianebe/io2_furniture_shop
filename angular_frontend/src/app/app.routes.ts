@@ -20,6 +20,8 @@ import { StatuteComponent } from './statute/statute.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { FinancialReportsComponent } from './financial-reports/financial-reports.component';
+import { DetailFinancialReportComponent } from './detail-financial-report/detail-financial-report.component';
 
 export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'bathroom', component: BathroomComponent},
@@ -36,10 +38,12 @@ export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'orders', component: OrdersComponent},
 {path: 'complaints', component: ComplaintsComponent},
 {path: 'crud', component: AdminCrudComponent},
-{path: 'crud_edit/:id', component: AdminCrudEditComponent},
-{path: 'crud_add', component: AdminCrudAddComponent},
+{path: 'crud/edit/:id', component: AdminCrudEditComponent},
+{path: 'crud/add', component: AdminCrudAddComponent},
 {path: 'product/:id', component: DetailProductComponent},
-{path: 'product_edit/:id', component: EditProductComponent},
-{path: 'product_add', component: AddProductComponent}];
+{path: 'product/edit/:id', component: EditProductComponent},
+{path: 'product/add', component: AddProductComponent},
+{path: 'financial_reports', component: FinancialReportsComponent},
+{path: 'financial_reports/:id', component: DetailFinancialReportComponent}];
 
 

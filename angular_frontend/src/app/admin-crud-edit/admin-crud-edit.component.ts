@@ -16,8 +16,6 @@ export class AdminCrudEditComponent implements OnInit {
     name: '',
     lastName: '',
     email: '',
-    password: '',
-    confirmPassword: '',
     role: ''
   };
   passwordShow: boolean = false;
@@ -40,7 +38,13 @@ export class AdminCrudEditComponent implements OnInit {
   loadUserData(): void {
     this.userService.getUserById(this.userId).subscribe(
       (userData) => {
-        this.user = userData;
+        this.user = {
+          id: userData.id,
+          name: userData.name,
+          lastName: userData.lastName,
+          email: userData.email,
+          role: userData.role
+        };
       },
       (error) => {
         console.error('Error loading user data:', error);
@@ -62,14 +66,14 @@ export class AdminCrudEditComponent implements OnInit {
       return;
     }
 
-    this.userService.updateUser(this.userId, this.user).subscribe(
-      (updatedUser) => {
-        console.log('User updated successfully:', updatedUser);
+    this.userService.updateUser(this.user.id, this.user).subscribe(
+      () => {
+        console.log('Użytkownik został zaktualizowany pomyślnie.');
         this.router.navigate(['/crud']);
       },
       (error) => {
         console.log(this.user)
-        console.error('Error updating user:', error);
+        console.error('Błąd podczas aktualizacji uzytkownika:', error, this.user);
       }
     );
   }

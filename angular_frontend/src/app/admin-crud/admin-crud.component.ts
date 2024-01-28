@@ -32,11 +32,11 @@ export class AdminCrudComponent implements OnInit {
   }
 
   addUser(): void {
-    this.router.navigate(['/crud_add']);
+    this.router.navigate(['/crud/add']);
   }
 
   editUser(userId: number): void {
-    this.router.navigate(['/crud_edit', userId]);
+    this.router.navigate(['/crud/edit', userId]);
   }
 
   deleteUser(userId: number): void {

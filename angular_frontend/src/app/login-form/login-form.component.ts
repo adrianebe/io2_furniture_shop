@@ -20,6 +20,7 @@ export class LoginFormComponent{
   onSubmitLogin(): void {
     const formData = {"email": this.email, "password": this.password};
     console.log('Przekazane dane:', formData);
+    this.errors = [];
     this.onSubmitLoginEvent.emit(formData);
   }
 
