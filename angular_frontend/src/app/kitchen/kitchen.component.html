@@ -1,7 +1,11 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-4 div-margin" *ngFor="let item of assortmentData">
-      <app-detail-window [assortmentItem]="item"></app-detail-window>
-    </div>
+    <ng-container  *ngFor="let item of assortmentData">
+      <ng-container *ngIf="item.availability == 1">
+        <div class="col-md-4 div-margin">
+          <app-detail-window [assortmentItem]="item"></app-detail-window>
+        </div>  
+      </ng-container>
+    </ng-container>
   </div>
 </div>

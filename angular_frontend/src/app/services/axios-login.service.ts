@@ -7,7 +7,7 @@ import axios, { AxiosRequestConfig, Method } from 'axios';
 export class AxiosLoginService {
 
   constructor() {
-    axios.defaults.baseURL = 'http://localhost:8080/api/v1/auth';
+    axios.defaults.baseURL = 'http://localhost:8081/api/v1/auth';
   }
 
   request(method: Method, url: string, data: any): Promise<any> {

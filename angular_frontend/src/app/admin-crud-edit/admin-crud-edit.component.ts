@@ -68,6 +68,7 @@ export class AdminCrudEditComponent implements OnInit {
         this.router.navigate(['/crud']);
       },
       (error) => {
+        console.log(this.user)
         console.error('Error updating user:', error);
       }
     );

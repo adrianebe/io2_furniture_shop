@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssortmentService } from '../services/assortment.service';
 import { NgIf } from '@angular/common';
@@ -24,10 +24,10 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('id');
     if (productId) {
+      console.log(productId, this.product)
       this.assortmentService.getAssortmentById(Number(productId)).subscribe(
         (productData) => {
           this.product = productData;
-          console.log(this.product)
         },
         (error) => {
           console.error('Błąd podczas pobierania danych produktu:', error);
@@ -39,9 +39,9 @@ export class EditProductComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.assortmentService.updateAssortment(this.product.productId, this.product).subscribe(
-      (updatedProduct) => {
-        console.log('Produkt został zaktualizowany pomyślnie.', updatedProduct);
+    this.assortmentService.updateAssortment(this.product.id, this.product).subscribe(
+      () => {
+        console.log('Produkt został zaktualizowany pomyślnie.');
         if (this.product.roomType === 'livingRoom') {
           this.router.navigate(["/living_room"]);
         } else {
@@ -49,6 +49,7 @@ export class EditProductComponent implements OnInit {
         }
       },
       (error) => {
+        console.log(this.product)
         console.error('Błąd podczas aktualizacji produktu:', error);
       }
     );
