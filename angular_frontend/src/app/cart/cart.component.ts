@@ -8,6 +8,14 @@ interface CartItem {
   quantity: number;
 }
 
+interface DetailedCartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  photo: string;
+}
+
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -17,7 +25,8 @@ interface CartItem {
 })
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
-  detailedCartItems: any[] = [];
+  detailedCartItems: DetailedCartItem[] = [];
+  totalCartPrice: number = 0;
 
   constructor(private assortmentService: AssortmentService, private cartService: CartService) {}
 
@@ -27,18 +36,23 @@ export class CartComponent implements OnInit {
 
   loadCartItems(): void {
     const cartIds = this.cartService.getCartItems();
-    const uniqueCartIds = Array.from(new Set(cartIds));
-    this.cartItems = uniqueCartIds.map(id => ({ id, quantity: cartIds.filter(c => c === id).length }));
-    console.log(localStorage);
     this.detailedCartItems = [];
+    this.totalCartPrice = 0;
+    console.log(cartIds);
 
-    this.cartItems.forEach(cartItem => {
+    cartIds.forEach(cartItem => {
       this.assortmentService.getAssortmentById(cartItem.id).subscribe(
         (data) => {
+          const detailedCartItem: DetailedCartItem = {
+            id: data.id,
+            name: data.name,
+            price: data.price,
+            quantity: cartItem.quantity,
+            photo: data.photo
+          };
 
-
-          const detailedCartItem = { ...data, quantity: cartItem.quantity };
           this.detailedCartItems.push(detailedCartItem);
+          this.totalCartPrice += detailedCartItem.price * detailedCartItem.quantity;
         },
         (error) => {
           console.error('Error loading cart item:', error);
@@ -50,9 +64,5 @@ export class CartComponent implements OnInit {
   removeFromCart(itemId: number): void {
     this.cartService.removeFromCart(itemId);
     this.loadCartItems();
-  }
-
-  calculateTotalPrice(): number {
-    return this.detailedCartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 }

@@ -16,13 +16,13 @@
     <tbody>
       <ng-container *ngFor="let product of detailedCartItems; let i = index">
         <tr>
-          <td><img src="{{ product.photo }}" alt="{{ product.name }}" class="product-image"></td>
+          <td><img src="{{ product.photo }}" alt="{{ product.name }}" class="product-image custom-image"></td>
           <td>{{ product.name }}</td>
           <td>{{ product.price }} zł</td>
           <td>{{ product.quantity }}</td>
 
           <td>
-            <button class="btn btn-danger" (click)="removeFromCart(product.id)">Usuń</button>
+            <button class="btn btn-danger" (click)="removeFromCart(product.id)">Usuń {{product.id}}</button>
           </td>
         </tr>
       </ng-container>
