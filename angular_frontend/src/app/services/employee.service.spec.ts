@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AxiosTokenService } from './axios-token.service';
+import { EmployeeService } from './employee.service';
 
-describe('AxiosTokenService', () => {
-  let service: AxiosTokenService;
+describe('EmployeeService', () => {
+  let service: EmployeeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AxiosTokenService);
+    service = TestBed.inject(EmployeeService);
   });
 
   it('should be created', () => {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { CrudService } from '../services/crud.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -25,7 +25,7 @@ export class AdminCrudEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: CrudService
   ) {}
 
   ngOnInit(): void {

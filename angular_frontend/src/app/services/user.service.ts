@@ -3,31 +3,43 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class UserService {
-  private apiUrl = 'http://localhost:8080/api/v1/admin/users';
+export class AppUserService {
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:8080/api/v1/user';
 
-  getAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  constructor(private http: HttpClient) { }
+
+  getAllAppUserOrders(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/orders`);
   }
 
-  getUserById(userId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/oneUser/${userId}`);
+  getOrderById(orderId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/orders/${orderId}`);
   }
 
-  addUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, user);
+  createOrder(assortmentIds: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/orders`, assortmentIds);
   }
 
-  updateUser(userId: number, updatedUser: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${userId}`, updatedUser);
+  cancelOrder(orderId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/orders/${orderId}`);
   }
 
-  deleteUser(userId: number): Observable<any> {
-    const url = `${this.apiUrl}/${userId}`;
-    return this.http.delete<any>(url);
+  getAllAppUserComplaints(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/complaints`);
+  }
+
+  getComplaintById(complaintId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/complaints/${complaintId}`);
+  }
+
+  addNewComplaint(complaint: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/complaints`, complaint);
+  }
+
+  deleteAppUserComplaint(complaintId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/complaints/${complaintId}`);
   }
 }

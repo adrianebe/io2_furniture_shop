@@ -7,32 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class AssortmentService {
 
-  apiUrl = 'http://localhost:8080/api/v1'
+  apiUrl = 'http://localhost:8080/api/v1/guest'
 
   constructor(private http: HttpClient) { }
 
   getAssortment(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/guest/assortment`);
+    console.log(localStorage);
+
+    return this.http.get<any[]>(`${this.apiUrl}/assortment`);
   }
 
   getAssortmentById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/guest/assortment/id/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/assortment/id/${id}`);
   }
 
   getAssortmentByRoomType(roomType: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/guest/assortment/${roomType}`);
-  }
-
-  addAssortment(Assortment: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/employee/assortment`, Assortment);
-  }
-
-  updateAssortment(id: number, Assortment: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/employee/assortment/${id}`, Assortment);
-  }
-
-  deleteAssortment(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/employee/assortment/${id}`);
+    return this.http.get<any[]>(`${this.apiUrl}/assortment/${roomType}`);
   }
 
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { CrudService } from '../services/crud.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -20,7 +20,7 @@ export class AdminCrudAddComponent {
   passwordError: string[] = [];
   emailError: string[] = [];
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: CrudService, private router: Router) {}
 
   showFirstPassword() {
     this.passwordFirstShow = 'text';

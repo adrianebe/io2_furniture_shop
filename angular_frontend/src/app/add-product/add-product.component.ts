@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AssortmentService } from '../services/assortment.service';
+import { EmployeeService } from '../services/employee.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -15,10 +15,10 @@ export class AddProductComponent {
   product: any = {};
   error: string | null = null;
 
-  constructor(private assortmentService: AssortmentService, private router: Router) {}
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   onSubmit(): void {
-    this.assortmentService.addAssortment(this.product).subscribe(
+    this.employeeService.addAssortment(this.product).subscribe(
       addedProduct => {
         console.log('Produkt został dodany pomyślnie.');
         console.log(this.product);

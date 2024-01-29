@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssortmentService } from '../services/assortment.service';
+import { EmployeeService } from '../services/employee.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -17,6 +18,7 @@ export class EditProductComponent implements OnInit {
 
   constructor(
     private assortmentService: AssortmentService,
+    private employeeService: EmployeeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -39,7 +41,7 @@ export class EditProductComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.assortmentService.updateAssortment(this.product.id, this.product).subscribe(
+    this.employeeService.updateAssortment(this.product.id, this.product).subscribe(
       () => {
         console.log('Produkt został zaktualizowany pomyślnie.');
         if (this.product.roomType === 'livingRoom') {

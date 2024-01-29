@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { CrudService } from '../services/crud.service';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -13,7 +13,7 @@ import { NgFor } from '@angular/common';
 export class AdminCrudComponent implements OnInit {
   users: any[] = [];
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: CrudService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadUsers();

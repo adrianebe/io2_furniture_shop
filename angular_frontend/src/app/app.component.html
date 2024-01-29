@@ -2,7 +2,9 @@
   <div class="top-container-margin">
     <a href="statute/" class="contact-link">Regulamin</a>
     <a href="customer_service/" class="customer-support-link">Obsługa Klienta</a>
-    <a href="login/" class="login-link">Zaloguj się</a>
+    <a *ngIf="axios.isLoggedIn()" (click)="onLogout()" class="login-link">Wyloguj się</a>
+    <a *ngIf="!axios.isLoggedIn()" href="login/" class="login-link">Zaloguj się</a>
+
   </div>
 </div>
 <div class="header-line"></div>
