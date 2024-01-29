@@ -35,6 +35,7 @@ export class AxiosLoginService {
 
   logout(): void {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('role');
     this.router.navigate(['']).then(() => {
       window.location.reload();
     });
@@ -43,4 +44,5 @@ export class AxiosLoginService {
   isLoggedIn(): boolean {
     return !!localStorage.getItem('auth_token');
   }
+
 }

@@ -1,16 +1,38 @@
-<div class="card text-center">
-  <img src="{{ assortmentItem.photo }}" class="card-img-top img-fluid custom-image mx-auto" alt="{{ assortmentItem.name }}">
-  <div class="card-body">
-    <h5 class="card-title">{{ assortmentItem.name }}</h5>
-    <p class="card-text">{{ assortmentItem.description }}</p>
-    <p class="card-text">Cena: {{ assortmentItem.price }} zł</p>
+<form (ngSubmit)="isUser() ? addToCart() : deleteItem()" #productForm="ngForm">
+  <div class="text-center">
+    <img src="{{ assortmentItem.photo }}" class="card-img-top img-fluid custom-image mx-auto" alt="{{ assortmentItem.name }}">
+    <div class="card-body body-margin">
+      <h5 class="card-title">{{ assortmentItem.name }}</h5>
+      <p class="card-text">{{ assortmentItem.description }}</p>
+      <p class="card-text">Cena: {{ assortmentItem.price }} zł</p>
 
-    <ng-container *ngIf="assortmentItem.availability === 1; else unavailableContent">
-      <a href="#" class="btn btn-custom">Dodaj do koszyka</a>
-    </ng-container>
+      <ng-container *ngIf="assortmentItem.availability === 1; else unavailableContent">
+        <ng-container *ngIf="isUser(); then userContent else employeeContent"></ng-container>
+      </ng-container>
 
-    <ng-template #unavailableContent>
-      <p class="text-danger">Produkt niedostępny</p>
-    </ng-template>
+      <ng-template #unavailableContent>
+        <p class="text-danger">Produkt niedostępny</p>
+      </ng-template>
+
+      <ng-template #isGuestContent>
+        <p class="text-danger">Aby zamówić, zaloguj się!</p>
+      </ng-template>
+
+      <ng-template #userContent>
+        <button type="submit" class="btn btn-custom">Dodaj do koszyka</button>
+      </ng-template>
+
+      <ng-template #employeeContent>
+        <ng-container *ngIf="isEmployee(); then employeeButtons"></ng-container>
+      </ng-template>
+
+      <ng-template #employeeButtons>
+        <a href="/product/edit/ {{ assortmentItem.id }}" class="btn btn-custom btn-margin">Edytuj</a>
+        <button type="submit" class="btn btn-danger" >Usuń</button>
+      </ng-template>
+
+      <ng-container *ngIf="isGuest(); then isGuestContent"></ng-container>
+
+    </div>
   </div>
-</div>
+</form>
