@@ -18,6 +18,10 @@ export class LivingRoomComponent implements OnInit {
   ngOnInit(): void {
     this.loadAssortmentData();
   }
+  isEmployee(): boolean {
+    const roles = localStorage.getItem('role');
+    return roles === 'EMPLOYEE';
+  }
 
   loadAssortmentData(): void {
     this.assortmentService.getAssortment().subscribe(

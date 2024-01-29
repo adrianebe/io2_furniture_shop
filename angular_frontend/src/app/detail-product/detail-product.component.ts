@@ -48,7 +48,7 @@ export class DetailProductComponent implements OnInit{
 
   isGuest(): boolean {
     const roles = localStorage.getItem('role');
-    return roles === '';
+    return roles === null;
   }
 
   isUser(): boolean {

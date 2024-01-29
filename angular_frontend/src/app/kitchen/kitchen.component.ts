@@ -19,6 +19,11 @@ export class KitchenComponent implements OnInit {
     this.loadAssortmentData();
   }
 
+  isEmployee(): boolean {
+    const roles = localStorage.getItem('role');
+    return roles === 'EMPLOYEE';
+  }
+
   loadAssortmentData(): void {
     this.assortmentService.getAssortment().subscribe(
       (data) => {
