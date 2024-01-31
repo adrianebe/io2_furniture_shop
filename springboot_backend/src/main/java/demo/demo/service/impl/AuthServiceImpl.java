@@ -18,10 +18,12 @@ public class AuthServiceImpl implements AuthService {
     private final AppUserService appUserService;
     private final JwtTokenProvider jwtTokenProvider;
 
+    @Override
     public void registerUser(String name, String lastName, String email, String password) {
         appUserService.registerAppUser(name, lastName, email, password);
     }
 
+    @Override
     public void validateCredentials(String email, String password) {
         try {
             AppUser user = (AppUser) appUserService.loadUserByUsername(email);
@@ -34,6 +36,7 @@ public class AuthServiceImpl implements AuthService {
         }
     }
 
+    @Override
     public String getJwtToken(String email) {
         AppUser user = (AppUser) appUserService.loadUserByUsername(email);
         String userRole = user.getRole().name();

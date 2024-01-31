@@ -1,6 +1,6 @@
 package demo.demo.controller;
 
-import demo.demo.dto.AssortmentListDto;
+import demo.demo.dto.AssortmentMapDto;
 import demo.demo.dto.OrderDto;
 import demo.demo.entity.AppUser;
 import demo.demo.entity.Assortment;
@@ -16,8 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -50,13 +50,16 @@ public class AppUserController {
 
 
     @PostMapping("orders")
-    public ResponseEntity<?> createOrder(@RequestBody AssortmentListDto assortmentIds) {
+    public ResponseEntity<?> createOrder(@RequestBody AssortmentMapDto assortmentMapDto) {
         AppUser currentUser = appUserService.getCurrentUser();
-        String deliveryAddress = assortmentIds.deliveryAddress();
+        String deliveryAddress = assortmentMapDto.deliveryAddress();
+        List<Assortment> assortments = new ArrayList<>();
 
-        List<Assortment> assortments = assortmentIds.assortmentIds().stream()
-                .map(assortmentService::getAssortmentById)
-                .collect(Collectors.toList());
+        assortmentMapDto.assortmentIdsAndCount().forEach((assortmentId, amount) -> {
+            for (int i = 0; i < amount; i++) {
+                assortments.add(assortmentService.getAssortmentById(assortmentId));
+            }
+        });
 
         orderService.createNewOrder(currentUser, deliveryAddress, assortments);
 
