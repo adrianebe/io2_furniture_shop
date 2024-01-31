@@ -64,20 +64,23 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
         return appUserRepo.findAllByEnabled(enabled);
     }
 
+    @Override
     public List<AppUser> getAllAppUsers() {
         return appUserRepo.findAll();
     }
 
+    @Override
     public List<AppUser> getAllAppUsersByRole(Role role) {
         return appUserRepo.findAllByRole(role);
     }
 
-
+    @Override
     public AppUser getAppUserById(Long id) {
         return appUserRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User by id: " + id + " was not found!"));
     }
 
+    @Override
     public void createNewAppUser(AppUser appUser) {
 
         if (appUserRepo.existsByEmail(appUser.getEmail())) {
@@ -89,6 +92,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
         appUserRepo.save(appUser);
     }
 
+    @Override
     public void updateAppUser(Long userId, AppUser appUser) {
         Optional<AppUser> existingUserOptional = appUserRepo.findById(userId);
 
@@ -121,6 +125,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
         }
     }
 
+    @Override
     public void deleteAppUser(Long appUserId) {
         appUserRepo.deleteById(appUserId);
     }
