@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Edytuj reklamację</h2>
+  <form (ngSubmit)="updateComplaint()">
+    <div class="form-group">
+      <label for="status" class="form-label">Status reklamacji</label>
+      <select class="form-control" id="status" name="status" [(ngModel)]="complaintData.status">
+        <option value="PENDING">PENDING</option>
+        <option value="PROCESSING">PROCESSING</option>
+        <option value="COMPLETED">COMPLETED</option>
+        <option value="CANCELLED">CANCELLED</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="response" class="form-label">Odpowiedź na reklamację</label>
+      <textarea class="form-control" id="response" [(ngModel)]="complaintData.response" name="response"></textarea>
+    </div>
+    <button type="submit" class="btn btn-custom">Zatwierdź</button>
+  </form>
+</div>

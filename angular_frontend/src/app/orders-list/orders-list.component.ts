@@ -19,10 +19,6 @@ export class OrdersListComponent {
     this.loadOrders();
   }
 
-  toggleDetails(order: any): void {
-    order.showDetails = !order.showDetails;
-  }
-
   loadOrders(): void {
     this.empService.getAllOrders().subscribe(
       (data) => {
@@ -38,7 +34,7 @@ export class OrdersListComponent {
   }
 
   goToEditOrder(orderId: number): void {
-    this.router.navigate(['/order', orderId]);
+    this.router.navigate(['/orders/edit/', orderId]);
   }
 }
 

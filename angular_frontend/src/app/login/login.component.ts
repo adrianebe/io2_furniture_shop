@@ -24,6 +24,7 @@ export class LoginComponent {
         console.log('Udane logowanie:', response);
         const jwtToken = response.data;
         const role: any = this.jwtHelper.decodeToken(jwtToken).role;
+
         if(jwtToken) {
           const tokenWithBearer = `Bearer ${jwtToken}`;
           localStorage.setItem('auth_token', tokenWithBearer);

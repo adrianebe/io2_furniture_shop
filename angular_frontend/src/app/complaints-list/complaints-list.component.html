@@ -1,1 +1,30 @@
-<p>complaints-list works!</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Lista reklamacji</h2>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID zamówienia</th>
+        <th scope="col">ID użytkownika</th>
+        <th scope="col">Opis</th>
+        <th scope="col">Odpowiedź</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let com of complaints">
+        <td>{{ com.id }}</td>
+        <td>{{ com.appUserId }}</td>
+        <td>{{ com.description }}</td>
+        <td>{{ com.response }}</td>
+        <td>{{ com.status }}</td>
+        <td>
+          <button class="btn btn-custom" (click)="goToEditComplaint(com.id)">Edytuj</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

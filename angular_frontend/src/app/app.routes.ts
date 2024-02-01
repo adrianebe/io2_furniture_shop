@@ -21,10 +21,11 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FinancialReportsComponent } from './financial-reports/financial-reports.component';
-import { DetailComplaintComponent } from './detail-complaint/detail-complaint.component';
+import { EditComplaintComponent } from './edit-complaint/edit-complaint.component';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { ComplaintsListComponent } from './complaints-list/complaints-list.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
+import { NewComplaintComponent } from './new-complaint/new-complaint.component';
 
 export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'bathroom', component: BathroomComponent},
@@ -47,9 +48,10 @@ export const routes: Routes = [{path: '', component: HomeComponent},
 {path: 'product/edit/:id', component: EditProductComponent},
 {path: 'product/add', component: AddProductComponent},
 {path: 'financial_reports', component: FinancialReportsComponent},
-{path: 'complaint/:id', component: DetailComplaintComponent},
-{path: 'order/:id', component: EditOrderComponent},
+{path: 'complaints/edit/:id', component: EditComplaintComponent},
+{path: 'orders/edit/:id', component: EditOrderComponent},
 {path: 'orders/list', component: OrdersListComponent},
-{path: 'complaints/list', component: ComplaintsListComponent}];
+{path: 'complaints/list', component: ComplaintsListComponent},
+{path: 'complaints/create', component: NewComplaintComponent}];
 
 
