@@ -1,31 +1,65 @@
 <div class="container mt-4">
-  <div class="d-flex justify-content-between mb-3">
-    <h2>Lista produktów</h2>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="d-flex justify-content-between mb-3">
+        <h2>Lista produktów</h2>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Zdjęcie</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Cena</th>
+            <th scope="col">Ilość</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let product of detailedCartItems; let i = index">
+            <tr>
+              <td><img src="{{ product.photo }}" alt="{{ product.name }}" class="product-image custom-image"></td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price * product.count}} zł</td>
+              <td>{{ product.count }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="removeFromCart(product.id)">Usuń</button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Dane do dostawy</h5>
+          <form (ngSubmit)="createOrder()" #deliveryInfoForm="ngForm">
+            <div class="mb-3">
+              <label for="street" class="form-label">Ulica</label>
+              <input type="text" class="form-control" id="street" placeholder="Wprowadź ulicę" [(ngModel)]="deliveryInfo.street" name="street" required>
+            </div>
+            <div class="mb-3">
+              <label for="streetNumber" class="form-label">Numer mieszkania</label>
+              <input type="text" class="form-control" id="streetNumber" placeholder="Wprowadź numer mieszkania" [(ngModel)]="deliveryInfo.streetNumber" name="streetNumber">
+            </div>
+            <div class="mb-3">
+              <label for="zipCode" class="form-label">Kod pocztowy</label>
+              <input type="text" class="form-control" id="zipCode" placeholder="Wprowadź kod pocztowy" [(ngModel)]="deliveryInfo.zipCode" name="zipCode" required>
+            </div>
+            <div class="mb-3">
+              <label for="city" class="form-label">Miasto</label>
+              <input type="text" class="form-control" id="city" placeholder="Wprowadź miasto" [(ngModel)]="deliveryInfo.city" name="city" required>
+            </div>
+            <div class="mb-3">
+              <label for="totalPrice" class="form-label">Cena całkowita</label>
+              <input type="text" class="form-control" id="totalPrice" disabled value="{{ totalCartPrice }} zł">
+            </div>
+            <button type="submit" [disabled]="deliveryInfoForm.invalid" class="btn btn-custom">Zamów</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Zdjęcie</th>
-        <th scope="col">Nazwa</th>
-        <th scope="col">Cena</th>
-        <th scope="col">Ilość</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let product of detailedCartItems; let i = index">
-        <tr>
-          <td><img src="{{ product.photo }}" alt="{{ product.name }}" class="product-image custom-image"></td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price }} zł</td>
-          <td>{{ product.quantity }}</td>
-
-          <td>
-            <button class="btn btn-danger" (click)="removeFromCart(product.id)">Usuń {{product.id}}</button>
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
 </div>

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AppUserService {
+export class UserService {
 
   private apiUrl = 'http://localhost:8080/api/v1/user';
 
@@ -19,8 +19,8 @@ export class AppUserService {
     return this.http.get<any>(`${this.apiUrl}/orders/${orderId}`);
   }
 
-  createOrder(assortmentIds: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/orders`, assortmentIds);
+  createOrder(assortmentMapDto: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/orders`, assortmentMapDto);
   }
 
   cancelOrder(orderId: number): Observable<any> {

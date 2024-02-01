@@ -34,8 +34,7 @@ export class AxiosLoginService {
   }
 
   logout(): void {
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('role');
+    localStorage.clear();
     this.router.navigate(['']).then(() => {
       window.location.reload();
     });
@@ -43,6 +42,16 @@ export class AxiosLoginService {
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('auth_token');
+  }
+
+  isEmployee(): boolean {
+    const userRole = localStorage.getItem('role');
+    return userRole === 'EMPLOYEE';
+  }
+
+  isAdmin(): boolean {
+    const userRole = localStorage.getItem('role');
+    return userRole === 'ADMIN';
   }
 
 }

@@ -15,7 +15,8 @@
       </ng-template>
 
       <ng-template #isGuestContent>
-        <p class="text-danger">Aby zamówić, zaloguj się!</p>
+        <p class="text-danger">Aby zamówić, <a href="login/">zaloguj się!</a></p>
+
       </ng-template>
 
       <ng-template #userContent>
@@ -27,7 +28,7 @@
       </ng-template>
 
       <ng-template #employeeButtons>
-        <a href="/product/edit/ {{ assortmentItem.id }}" class="btn btn-custom btn-margin">Edytuj</a>
+        <a href="/product/edit/{{ assortmentItem.id }}" class="btn btn-custom btn-margin">Edytuj</a>
         <button type="submit" class="btn btn-danger" >Usuń</button>
       </ng-template>
 

@@ -62,4 +62,9 @@ export class EmployeeService {
   updateOrder(orderId: number, updatedOrder: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/orders/${orderId}`, updatedOrder);
   }
+
+  getOrderById(orderId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/orders/${orderId}`);
+  }
+
 }

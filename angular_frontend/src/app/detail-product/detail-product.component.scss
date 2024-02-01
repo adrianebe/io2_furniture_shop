@@ -16,3 +16,13 @@
 .body-margin {
   margin-bottom: 40px;
 }
+
+.text-danger a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.text-danger a:hover {
+  color: blue; /* lub dowolny inny kolor po najechaniu */
+}

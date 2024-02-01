@@ -1,0 +1,30 @@
+<!-- edit-order.component.html -->
+
+<div class="container">
+  <h2>Edycja zamówienia</h2>
+  <form (ngSubmit)="updateOrder()" #orderForm="ngForm">
+    <div class="mb-3">
+      <label for="deliveryDate" class="form-label">Data dostarczenia</label>
+      <input type="date" class="form-control" id="deliveryDate" [(ngModel)]="editedOrder.deliveryDate" name="deliveryDate">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Cena</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="editedOrder.price" name="price">
+    </div>
+    <div class="mb-3">
+      <label for="street" class="form-label">Adres</label>
+      <input type="text" class="form-control" id="street" [(ngModel)]="editedOrder.deliveryAddress" name="street">
+    </div>
+
+    <div class="mb-3">
+      <label for="orderStatus" class="form-label">Status zamówienia</label>
+      <select class="form-select" id="orderStatus" [(ngModel)]="editedOrder.orderStatus" name="orderStatus">
+        <option value="PENDING">Oczekujące</option>
+        <option value="PROCESSING">Przetwarzane</option>
+        <option value="COMPLETED">Zakończone</option>
+        <option value="CANCELLED">Anulowane</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="orderForm.invalid" class="btn btn-custom">Zapisz</button>
+  </form>
+</div>

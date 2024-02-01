@@ -1,12 +1,20 @@
-<div class="top-container">
-  <div class="top-container-margin">
-    <a href="statute/" class="contact-link">Regulamin</a>
-    <a href="customer_service/" class="customer-support-link">Obsługa Klienta</a>
-    <a *ngIf="axios.isLoggedIn()" (click)="onLogout()" class="login-link">Wyloguj się</a>
-    <a *ngIf="!axios.isLoggedIn()" href="login/" class="login-link">Zaloguj się</a>
+<ng-container *ngIf="!axios.isAdmin()">
 
+  <div class="top-container">
+    <div class="top-container-margin">
+      <ng-container *ngIf="axios.isLoggedIn() && axios.isEmployee()">
+        <a href="financial-reports/" class="contact-link">Raporty finansowe</a>
+        <a href="orders/list/" class="login-link">Zamówienia</a>
+        <a href="complaints/list/" class="login-link">Reklamacje</a>
+      </ng-container>
+      <a *ngIf="axios.isLoggedIn() && !axios.isEmployee()" href="orders/" class="login-link">Zamówienia</a>
+      <a *ngIf="axios.isLoggedIn() && !axios.isEmployee()" href="complaints/" class="login-link">Reklamacje</a>
+      <a href="statute/" class="contact-link">Regulamin</a>
+      <a href="customer_service/" class="customer-support-link">Obsługa Klienta</a>
+      <a *ngIf="!axios.isLoggedIn()" href="login/" class="login-link">Zaloguj się</a>
+      <a *ngIf="axios.isLoggedIn()" (click)="onLogout()" class="login-link">Wyloguj się</a>
+    </div>
   </div>
-</div>
 <div class="header-line"></div>
 <header>
   <a href="" class="logo">
@@ -35,9 +43,25 @@
     <li><a href="boards/">Płyty na wymiar</a></li>
   </ul>
 </nav>
-<div class="custom-height">
-  <router-outlet></router-outlet>
+
+</ng-container>
+
+<ng-container *ngIf="axios.isLoggedIn() && axios.isAdmin()">
+  <div class="top-container">
+    <div class="top-container-margin">
+      <a (click)="onLogout()" class="login-link">Wyloguj się</a>
+    </div>
+  </div>
+  <div class="custom-height-admin">
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
+<ng-container *ngIf="!axios.isAdmin()">
+  <div class="custom-height">
+    <router-outlet></router-outlet>
 </div>
+</ng-container>
+
 
 
 <footer>
