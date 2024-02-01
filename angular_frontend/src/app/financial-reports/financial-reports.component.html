@@ -1,1 +1,21 @@
-<p>financial-reports works!</p>
+<div class="container">
+  <h2>Generuj raport finansowy</h2>
+  <form (ngSubmit)="generateFinancialReport()">
+    <div class="form-group">
+      <label for="startDate" class="form-label">Data początkowa</label>
+      <input type="date" class="form-control" id="startDate" [(ngModel)]="reportData.startDate" name="startDate" required>
+    </div>
+    <div class="form-group">
+      <label for="endDate" class="form-label">Data końcowa</label>
+      <input type="date" class="form-control" id="endDate" [(ngModel)]="reportData.endDate" name="endDate" required>
+    </div>
+    <button type="submit" class="btn btn-custom">Generuj raport</button>
+  </form>
+
+  <h2 class="mt-4">Lista raportów finansowych</h2>
+  <ul>
+    <li *ngFor="let report of financialReports">
+      {{ report.id }} - {{ report.reportName }} - {{ report.creationDate }}
+    </li>
+  </ul>
+</div>
